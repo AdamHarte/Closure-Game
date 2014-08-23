@@ -27,10 +27,10 @@ class Player extends FlxSprite
 		_spawnPoint = new FlxPoint(startX, startY);
 		
 		//makeGraphic(16, 16, FlxColor.BLUE);
-		loadGraphic('assets/images/player.png', true, 32, 32);
-		width = 9;
-		height = 31;
-		offset.set(11, 1);
+		loadGraphic('assets/images/player.png', true, 64, 64);
+		width = 18;
+		height = 48;
+		offset.set(22, 14);
 		
 		var runSpeed:Int = 150;
 		drag.x = runSpeed * 8;
