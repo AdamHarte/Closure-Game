@@ -1,5 +1,6 @@
 package com.adamharte.closure;
 
+import com.adamharte.closure.weapons.PlayerWeapon;
 import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxObject;
@@ -25,6 +26,8 @@ class PlayState extends FlxState
 	var _cameraFollowPoint:FlxObject;
 	var _level:TiledLevel;
 	var _player:Player;
+	var _playerItems:FlxGroup;
+	var _playerWeapon:PlayerWeapon;
 	
 	// Collision groups
 	var _objects:FlxGroup;
@@ -35,18 +38,28 @@ class PlayState extends FlxState
 		levelTilesPath = 'assets/level_tiles.png';
 		levelObjectsPath = 'assets/level_objects.png';
 		
+		// Setup groups.
+		Reg.bullets = new FlxGroup();
+		
 		// Setup tile maps.
 		_level = new TiledLevel(Reg.currentLevel.filePath);
 		Reg.level = _level;
 		buildLevel();
 		
-		_player = new Player(_level.playerSpawn.x, _level.playerSpawn.y);
+		_playerItems = new FlxGroup();
+		
+		_playerWeapon = new PlayerWeapon();
+		_player = new Player(_level.playerSpawn.x, _level.playerSpawn.y, _playerWeapon);
 		
 		add(_level.foregroundTiles);
 		add(_player);
+		add(_playerItems);
+		_playerItems.add(_playerWeapon);
+		add(Reg.bullets);
 		
 		_objects = new FlxGroup();
 		_objects.add(_player);
+		_objects.add(Reg.bullets);
 		
 		_cameraFollowPoint = new FlxObject();
 		_cameraFollowPoint.setPosition(_player.x, _player.y);
@@ -56,6 +69,8 @@ class PlayState extends FlxState
 		_cameraFollowPoint.setPosition(_player.x, _player.y);
 		FlxG.camera.setBounds(0, 0, _level.fullWidth, _level.fullHeight, true);
 		FlxG.camera.follow(_cameraFollowPoint, FlxCamera.STYLE_PLATFORMER, new FlxPoint(), 5);
+		
+		//FlxG.debugger.drawDebug = true;
 		
 		super.create();
 		
@@ -68,6 +83,9 @@ class PlayState extends FlxState
 		
 		_level = null;
 		_player = null;
+		_playerItems = null;
+		_playerWeapon = null;
+		Reg.bullets = null;
 		
 		_objects = null;
 	}
@@ -82,7 +100,7 @@ class PlayState extends FlxState
 		
 		// Handle all collisions.
 		_level.collideWithLevel(_objects);
-		
+		//FlxG.overlap(Reg.bullets, _hazards, shootHazardsOverlapHandler);
 		
 		
 		super.update();

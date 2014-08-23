@@ -1,6 +1,8 @@
 package com.adamharte.closure;
 
 import com.adamharte.closure.Reg;
+import com.adamharte.closure.weapons.PlayerWeapon;
+import com.adamharte.closure.weapons.WeaponType;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
@@ -14,17 +16,25 @@ import flixel.util.FlxPoint;
  */
 class Player extends FlxSprite
 {
+	public var playerMidPoint:FlxPoint;
+	
 	var _jumpPower:Int;
+	var _weapon:PlayerWeapon;
 	var _spawnPoint:FlxPoint;
 	
 	
-	public function new(startX:Float, startY:Float) 
+	public function new(startX:Float, startY:Float, weapon:PlayerWeapon) 
 	{
+		_spawnPoint = new FlxPoint(startX, startY);
+		_weapon = weapon;
+		_weapon.weaponType = WeaponType.RevolverWeapon;
+		
 		_jumpPower = 300;
+		playerMidPoint = new FlxPoint();
 		
 		super(startX, startY);
 		
-		_spawnPoint = new FlxPoint(startX, startY);
+		
 		
 		//makeGraphic(16, 16, FlxColor.BLUE);
 		loadGraphic('assets/images/player.png', true, 64, 64);
@@ -41,22 +51,23 @@ class Player extends FlxSprite
 		maxVelocity.y = _jumpPower;
 		
 		// Setup animations.
-		animation.add('idle', [1]);
-		animation.add('run', [2, 3, 4, 5, 6, 7, 8, 9], 12);
-		
-		//animation.play('run');
+		animation.add('idle', [2]);
+		animation.add('run', [3, 4, 5, 6, 7, 8, 9, 10], 12);
+		//animation.add('jump', [4, 3, 5], 12, false);
 	}
 	
 	override public function destroy():Void 
 	{
 		super.destroy();
 		
-		
+		playerMidPoint = null;
 	}
 	
 	override public function update():Void 
 	{
 		
+		
+		getMidpoint(playerMidPoint);
 		
 		//Movement
 		acceleration.x = 0;
@@ -98,9 +109,24 @@ class Player extends FlxSprite
 			animation.play('run');
 		}
 		
+		// Weapons.
+		_weapon.facing = facing;
+		_weapon.angle = FlxAngle.getAngle(_weapon.getMidpoint(), FlxG.mouse.getWorldPosition()) + ((isAimingRight) ? -90 : 90);
+		
+		// Shoot
+		if ((_weapon.manualReloadOverride && FlxG.mouse.justPressed) || (_weapon.shotReady && FlxG.mouse.pressed)) 
+		{
+			var shootPower:Float = _weapon.getMidpoint().distanceTo(FlxG.mouse.getWorldPosition());
+			shootPower = Math.min(Math.max(shootPower - 30, 0), 70) / 70; // Raw power value range is 30-100. So we bring that to be 0-1 range.
+			_weapon.shoot(FlxAngle.asRadians((isAimingRight) ? _weapon.angle : _weapon.angle - 180), shootPower);
+		}
+		
 		
 		
 		super.update();
+		
+		_weapon.setPosition(x + 2, y + 12);
+		
 	}
 	
 }

@@ -1,6 +1,7 @@
 package com.adamharte.closure;
 
 import flixel.FlxSprite;
+import flixel.group.FlxGroup;
 import flixel.util.FlxSave;
 
 /**
@@ -21,6 +22,7 @@ class Reg
 	static public var currentLevel(get, never):LevelData;
 	
 	//static public var enemies:FlxGroup;
+	static public var bullets:FlxGroup;
 	
 	static public var debugGroup:FlxSprite;
 	
