@@ -28,6 +28,8 @@ class Player extends FlxSprite
 		
 		//makeGraphic(16, 16, FlxColor.BLUE);
 		loadGraphic('assets/images/player.png', true, 64, 64);
+		setFacingFlip(FlxObject.LEFT, true, false);
+		setFacingFlip(FlxObject.RIGHT, false, false);
 		width = 18;
 		height = 48;
 		offset.set(22, 14);
@@ -40,8 +42,9 @@ class Player extends FlxSprite
 		
 		// Setup animations.
 		animation.add('idle', [1]);
+		animation.add('run', [2, 3, 4, 5, 6, 7, 8, 9], 12);
 		
-		animation.play('idle');
+		//animation.play('run');
 	}
 	
 	override public function destroy():Void 
@@ -67,7 +70,11 @@ class Player extends FlxSprite
 		}
 		
 		var isAimingRight:Bool = Math.abs(FlxAngle.angleBetweenMouse(this)) < (Math.PI * 0.5);
-		facing = (isAimingRight) ? FlxObject.RIGHT : FlxObject.LEFT;
+		//facing = (isAimingRight) ? FlxObject.RIGHT : FlxObject.LEFT;
+		if (velocity.x != 0) 
+		{
+			facing = (velocity.x > 0) ? FlxObject.RIGHT : FlxObject.LEFT;
+		}
 		
 		// Jumping
 		if (velocity.y == 0 && (FlxG.keys.justPressed.W || FlxG.keys.justPressed.SPACE)) 
@@ -84,11 +91,11 @@ class Player extends FlxSprite
 		}
 		else if(velocity.x == 0)
 		{
-			//animation.play('idle');
+			animation.play('idle');
 		}
 		else 
 		{
-			//animation.play('run');
+			animation.play('run');
 		}
 		
 		
