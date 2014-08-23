@@ -53,7 +53,7 @@ class Player extends FlxSprite
 		// Setup animations.
 		animation.add('idle', [2]);
 		animation.add('run', [3, 4, 5, 6, 7, 8, 9, 10], 12);
-		//animation.add('jump', [4, 3, 5], 12, false);
+		animation.add('jump', [11, 12, 13, 14], 10, false);
 	}
 	
 	override public function destroy():Void 
@@ -92,7 +92,7 @@ class Player extends FlxSprite
 		{
 			velocity.y = -_jumpPower;
 			//FlxG.sound.play('Jump', 0.5);
-			//animation.play('jump');
+			animation.play('jump');
 		}
 		
 		// Animation
