@@ -29,6 +29,8 @@ class Main extends Sprite
 	{
 		super();
 		
+		loadLevels();
+		
 		if (stage != null) 
 		{
 			init();
@@ -47,6 +49,12 @@ class Main extends Sprite
 		}
 		
 		setupGame();
+	}
+	
+	function loadLevels():Void 
+	{
+		Reg.addLevel('Test Level', 'test_level');
+		
 	}
 	
 	private function setupGame():Void

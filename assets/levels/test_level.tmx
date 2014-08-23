@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="80" height="40" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="level_tiles" tilewidth="16" tileheight="16">
+  <image source="../images/level_tiles.png" width="80" height="48"/>
+  <terraintypes>
+   <terrain name="Test Terrain" tile="-1"/>
+  </terraintypes>
+  <tile id="0" terrain=",,,0"/>
+  <tile id="1" terrain=",,0,0"/>
+  <tile id="2" terrain=",,0,"/>
+  <tile id="3" terrain="0,0,0,"/>
+  <tile id="4" terrain="0,0,,0"/>
+  <tile id="5" terrain=",0,,0"/>
+  <tile id="6" terrain="0,0,0,0"/>
+  <tile id="7" terrain="0,,0,"/>
+  <tile id="8" terrain="0,,0,0"/>
+  <tile id="9" terrain=",0,0,0"/>
+  <tile id="10" terrain=",0,,"/>
+  <tile id="11" terrain="0,0,,"/>
+  <tile id="12" terrain="0,,,"/>
+ </tileset>
+ <tileset firstgid="16" name="player" tilewidth="32" tileheight="32">
+  <image source="../images/player.png" width="256" height="32"/>
+  <tile id="1">
+   <properties>
+    <property name="type" value="player"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Foreground" width="80" height="40">
+  <properties>
+   <property name="tileset" value="level_tiles"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt0EsKwkAARMHBX1Ry//OajTC4MnkLEepB75taxhiLpV22rbZr18nvPrS32+BX4tfi1+LX4tfi1+LX4tfi1+LX4tfi1+LX4tfi1+LX4tfi1+LX4tfi1+LX4tfi1+LX4tfi1+LX4tfi1+LX4tfi1+LXmv0e286/vfN3zX5vw5N9veeHnx3bC5b/DLo=
+  </data>
+ </layer>
+ <objectgroup name="objects" width="80" height="40">
+  <object type="player" gid="17" x="64" y="544"/>
+ </objectgroup>
+</map>
