@@ -110,8 +110,19 @@ class Player extends FlxSprite
 		}
 		
 		// Weapons.
-		_weapon.facing = facing;
+		//_weapon.facing = facing;
+		_weapon.facing = (isAimingRight) ? FlxObject.RIGHT : FlxObject.LEFT;
 		_weapon.angle = FlxAngle.getAngle(_weapon.getMidpoint(), FlxG.mouse.getWorldPosition()) + ((isAimingRight) ? -90 : 90);
+		if (isAimingRight)
+		{
+			_weapon.offset.set(2, 2);
+			_weapon.origin.set(4, 4);
+		}
+		else 
+		{
+			_weapon.offset.set(30, 2);
+			_weapon.origin.set(28, 4);
+		}
 		
 		// Shoot
 		if ((_weapon.manualReloadOverride && FlxG.mouse.justPressed) || (_weapon.shotReady && FlxG.mouse.pressed)) 
@@ -125,7 +136,12 @@ class Player extends FlxSprite
 		
 		super.update();
 		
-		_weapon.setPosition(x + 2, y + 12);
+		var weaponOffset:FlxPoint = new FlxPoint(2, 12);
+		if (!isAimingRight)
+		{
+			weaponOffset.set(18, 12);
+		}
+		_weapon.setPosition(x + weaponOffset.x, y + weaponOffset.y);
 		
 	}
 	
