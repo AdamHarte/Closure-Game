@@ -104,6 +104,8 @@ class TiledLevel extends TiledMap
 		creatures02 = [];
 		creatures03 = [];
 		
+		Reg.currentLevel.enemyCount = 0;
+		
 		for (group in objectGroups)
 		{
 			for (obj in group.objects)
