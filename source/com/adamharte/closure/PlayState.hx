@@ -180,10 +180,13 @@ class PlayState extends FlxState
 	
 	function shootHazardsOverlapHandler(playerBullet:Bullet, hazard:FlxObject):Void 
 	{
-		playerBullet.kill();
-		if (!playerBullet.splashDamage) 
+		if (!Std.is(hazard, Bullet))
 		{
-			hazard.hurt(playerBullet.damage);
+			playerBullet.kill();
+			if (!playerBullet.splashDamage) 
+			{
+				hazard.hurt(playerBullet.damage);
+			}
 		}
 	}
 	
