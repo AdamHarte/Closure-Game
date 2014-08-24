@@ -52,6 +52,7 @@ class PlayState extends FlxState
 		// Setup groups.
 		Reg.enemies = new FlxGroup();
 		Reg.bullets = new FlxGroup();
+		Reg.enemyBullets = new FlxGroup();
 		
 		// Setup tile maps.
 		_level = new TiledLevel(Reg.currentLevel.filePath);
@@ -71,16 +72,19 @@ class PlayState extends FlxState
 		_playerItems.add(_playerWeapon);
 		add(Reg.enemies);
 		add(Reg.bullets);
+		add(Reg.enemyBullets);
 		
 		spawnEnemies();
 		
 		_hazards = new FlxGroup();
 		_hazards.add(Reg.enemies);
+		_hazards.add(Reg.enemyBullets);
 		
 		_objects = new FlxGroup();
 		_objects.add(_player);
 		_objects.add(Reg.enemies);
 		_objects.add(Reg.bullets);
+		_objects.add(Reg.enemyBullets);
 		
 		_cameraFollowPoint = new FlxObject();
 		_cameraFollowPoint.setPosition(_player.x, _player.y);
@@ -109,6 +113,7 @@ class PlayState extends FlxState
 		_portal = null;
 		Reg.enemies = null;
 		Reg.bullets = null;
+		Reg.enemyBullets = null;
 		
 		_objects = null;
 	}

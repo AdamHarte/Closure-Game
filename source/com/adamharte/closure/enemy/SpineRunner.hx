@@ -1,6 +1,8 @@
 package com.adamharte.closure.enemy;
+import com.adamharte.closure.weapons.FlameBullet;
 import flixel.FlxObject;
 import flixel.group.FlxGroup;
+import flixel.util.FlxAngle;
 import flixel.util.FlxRandom;
 
 /**
@@ -38,14 +40,33 @@ class SpineRunner extends Enemy
 		animation.add('hit', [5, 6, 3, 5], 6);
 		animation.add('jump', [2, 3, 4], 6, false);
 		
-		animation.play('idle');
+		//animation.play('idle');
 	}
 	
 	override public function init(xPos:Float, yPos:Float, player:Player, ?bullets:FlxGroup):Void 
 	{
-		super.init(xPos, yPos, player);
+		super.init(xPos, yPos, player, Reg.enemyBullets);
 		
-		_aggression = 0; // Stop enemy from shooting.
+		_aggression = FlxRandom.intRanged(0, 3);// 0; // Stop enemy from shooting.
+	}
+	
+	override function shoot() 
+	{
+		//super.shoot();
+		
+		_shootTimer = _reloadTime;
+		
+		// Make the shoot sound.
+		//FlxG.sound.play('EnemyShoot', 0.3);
+		
+		// Fire the bullet.
+		var bullet:FlameBullet = cast(_bullets.recycle(FlameBullet), FlameBullet);
+		bullet.speed = 200;
+		
+		var mid = getMidpoint();
+		var playerMid = _player.getMidpoint();
+		var shootAngle = FlxAngle.asRadians(FlxAngle.getAngle(mid, playerMid) - 90);
+		bullet.shoot(mid, shootAngle);
 	}
 	
 }

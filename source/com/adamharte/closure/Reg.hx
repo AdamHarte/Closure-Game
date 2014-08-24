@@ -24,6 +24,7 @@ class Reg
 	
 	static public var enemies:FlxGroup;
 	static public var bullets:FlxGroup;
+	static public var enemyBullets:FlxGroup;
 	
 	static public var debugGroup:FlxSprite;
 	
