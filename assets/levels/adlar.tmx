@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="160" height="40" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="level_tiles" tilewidth="16" tileheight="16">
+  <image source="../images/level_tiles.png" width="80" height="48"/>
+  <terraintypes>
+   <terrain name="Test Terrain" tile="-1"/>
+  </terraintypes>
+  <tile id="0" terrain=",,,0"/>
+  <tile id="1" terrain=",,0,0"/>
+  <tile id="2" terrain=",,0,"/>
+  <tile id="3" terrain="0,0,0,"/>
+  <tile id="4" terrain="0,0,,0"/>
+  <tile id="5" terrain=",0,,0"/>
+  <tile id="6" terrain="0,0,0,0"/>
+  <tile id="7" terrain="0,,0,"/>
+  <tile id="8" terrain="0,,0,0"/>
+  <tile id="9" terrain=",0,0,0"/>
+  <tile id="10" terrain=",0,,"/>
+  <tile id="11" terrain="0,0,,"/>
+  <tile id="12" terrain="0,,,"/>
+ </tileset>
+ <tileset firstgid="16" name="objects" tilewidth="64" tileheight="64">
+  <image source="../images/objects.png" width="512" height="64"/>
+ </tileset>
+ <tileset firstgid="24" name="enemies" tilewidth="64" tileheight="64">
+  <image source="../images/enemies.png" width="512" height="64"/>
+  <tile id="1">
+   <properties>
+    <property name="type" value="c01"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Foreground" width="160" height="40">
+  <properties>
+   <property name="tileset" value="level_tiles"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztm9sOgjAQBesV8fL/vys8NDHGttvScpDOJOe1rtthAYXBOTcQQrrOecozkMsG6iupfet1q/qU6kvMhVh+rWtd6+XCPArrWSuh2r/r7tVH74DvU2o/Yy7E+LVu6Vp7ZO5PjoOpY3eJz5a5UGt9HNgOV5c/L0L4473Ek5uh1iXnHZzbJhb/LG58UuIJfvRJyr959uEGtCLlX+7sA8gh5d845SSrDvZOi+s/ACv4B0rwD5TgHyjBP1CCf6AE/0AJ/oES/AMl+AdKeP4AlPD8ASjBP1CCf6AE/0DFYcrd4R9o4N4XlHDuBSX4B0rwD5RY3j06Ot4/gjZY/vtlDkIr8A+UWP3b0zvA82+eXFMsx/cxllSPrf790wxM9cX/3j46e5/WpMa+tvjMUB8t9w9L1qg9A0u+a+2+5PZpzdTY11x/c+aQMjX2qcQP0nYf2RNCCCGk77wBQ2QxXQ==
+  </data>
+ </layer>
+ <objectgroup name="objects" width="160" height="40">
+  <object type="portal" gid="17" x="128" y="576"/>
+  <object type="c01" gid="25" x="592" y="560"/>
+  <object type="c01" gid="25" x="752" y="560"/>
+  <object type="c01" gid="25" x="1152" y="560"/>
+  <object type="c01" gid="25" x="1296" y="560"/>
+  <object type="c01" gid="25" x="896" y="528"/>
+  <object type="c01" gid="25" x="1392" y="560"/>
+  <object type="c01" gid="25" x="1056" y="560"/>
+ </objectgroup>
+</map>

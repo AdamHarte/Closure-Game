@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="160" height="40" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="level_tiles" tilewidth="16" tileheight="16">
+  <image source="../images/level_tiles.png" width="80" height="48"/>
+  <terraintypes>
+   <terrain name="Test Terrain" tile="-1"/>
+  </terraintypes>
+  <tile id="0" terrain=",,,0"/>
+  <tile id="1" terrain=",,0,0"/>
+  <tile id="2" terrain=",,0,"/>
+  <tile id="3" terrain="0,0,0,"/>
+  <tile id="4" terrain="0,0,,0"/>
+  <tile id="5" terrain=",0,,0"/>
+  <tile id="6" terrain="0,0,0,0"/>
+  <tile id="7" terrain="0,,0,"/>
+  <tile id="8" terrain="0,,0,0"/>
+  <tile id="9" terrain=",0,0,0"/>
+  <tile id="10" terrain=",0,,"/>
+  <tile id="11" terrain="0,0,,"/>
+  <tile id="12" terrain="0,,,"/>
+ </tileset>
+ <tileset firstgid="16" name="objects" tilewidth="64" tileheight="64">
+  <image source="../images/objects.png" width="512" height="64"/>
+ </tileset>
+ <tileset firstgid="24" name="enemies" tilewidth="64" tileheight="64">
+  <image source="../images/enemies.png" width="512" height="64"/>
+  <tile id="1">
+   <properties>
+    <property name="type" value="c01"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Foreground" width="160" height="40">
+  <properties>
+   <property name="tileset" value="level_tiles"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztXNtu5SAMzG67vezl/393mwcky8L2YOwEGo9kqdU5JYCHsTGk78dxvJeVlT3aXr/sr2C/FuhfWZyPLX9qXNCs1y7a1r9Dxh9nf7x9LsvhXfOx5U+NCxp67Xrbugoot+/gqbV2Z/qE6EJU+6tzYAdwnmbykeuF1SdPXz4cYx6x4lwu3o48/iHcoPDwpPixN7L4d2pfcWMf/Piyn8ReLnruqTkZMXhU+wpx4FzqcYp/5/dxn/8yNPDzuG4NPRUSzziXqE+s79wRu2by/9LA+5CVO0nakR2jo8dT/JuHpHGWhkVw0Hpe7zszvIzWweIfhpNjL+TnaI6h5zUZ3PVwUeLh6+AYin82Tr6dHGs+y9C05ge+1+S1+wx+tnF5eUj79Dk4P8U/G5n1154faI2V7zHoZ6vsBaQ1g/TvafxrsdNa6zTGZuZwM36QzgK8vJzVQb5mkHUbnZ+ujBZHtXFncA7JiSJ1QDu/Re5+RfXFGze+07nI1Tomccs6Q8iMQ1o8p2h8uZt/ljaMaiNS649Cxt40gn9Ue1dd742nUX3x8A+JFVKewHOr9jtS67dM4+oKGqfNobUn/K45uId/I/tnzh+eW0VyQfPR7P50tGYVOYfFvz3Myz+ab0scG+XLlWPbGbvxT9MhyUdaXsX/TqudWRqI8Ng7vpX5h9areojmH52/6JjVcnCplinlxJb2SX/Hz480DeTtWHtZqf76IfR31XtIdG171kjGXQW6R4q6l9jzL3p3uo2Rrwd0T2lpotSH3tz23n1C9yGRGqjdh0B5zuPKaP+suOSx3jqN4ODM3NP1QDkRcZ6A1Mq0cSA+QN+/0TBSc7LOOKSaxahGz9SetTyn51ck/9fel82oN2XHtN6643PD54XPRVTdT3qO5kep9hVVJxrhn/T+IvqOqxTD6Pxe8b7siH5d8Tzp86g6L9cqaT2/HX3+R8Q/CSj/omvvI7lbYQ7cx5I+cb7P5EyoBlr8i459heuA6p6GmbNZRAOt9mfu2hTuBfWtN37NaCDCQZTfK9c+nw6p9huV42T+T4vi357o3aXI9pH3noCmgWibq9bePZg5K7oLSO0u20cZueBIm7tooFbX792/WY2Lvf6jZwReH1lzNntPyVNHzFpfyFhnzDNPI3cMsy3Dz9b52i53UCL8tMLdz6ebdCezrKysrKys7Jn2H7YDXXw=
+  </data>
+ </layer>
+ <objectgroup name="objects" width="160" height="40">
+  <object type="portal" gid="17" x="96" y="256"/>
+  <object type="c01" gid="25" x="160" y="576"/>
+  <object type="c01" gid="25" x="320" y="576"/>
+  <object type="c01" gid="25" x="1376" y="176"/>
+  <object type="c01" gid="25" x="1104" y="560"/>
+  <object type="c01" gid="25" x="1104" y="256"/>
+  <object type="c01" gid="25" x="1312" y="560"/>
+  <object type="c01" gid="25" x="672" y="304"/>
+  <object type="c01" gid="25" x="1616" y="128"/>
+  <object type="c01" gid="25" x="1936" y="160"/>
+  <object type="c01" gid="25" x="2416" y="544"/>
+  <object type="c01" gid="25" x="2128" y="416"/>
+  <object type="c01" gid="25" x="2032" y="544"/>
+  <object type="c01" gid="25" x="1904" y="560"/>
+  <object type="c01" gid="25" x="1616" y="528"/>
+  <object type="c01" gid="25" x="512" y="560"/>
+ </objectgroup>
+</map>
