@@ -19,8 +19,11 @@
   <tile id="11" terrain="0,0,,"/>
   <tile id="12" terrain="0,,,"/>
  </tileset>
- <tileset firstgid="16" name="player" tilewidth="64" tileheight="64">
-  <image source="../images/player.png" width="512" height="64"/>
+ <tileset firstgid="17" name="player" tilewidth="64" tileheight="64">
+  <image source="../images/player.png" width="512" height="128"/>
+ </tileset>
+ <tileset firstgid="33" name="enemies" tilewidth="32" tileheight="32">
+  <image source="../images/enemies.png" width="256" height="32"/>
  </tileset>
  <layer name="Foreground" width="80" height="40">
   <properties>
@@ -31,6 +34,11 @@
   </data>
  </layer>
  <objectgroup name="objects" width="80" height="40">
-  <object type="player" gid="17" x="64" y="528"/>
+  <object type="player" gid="18" x="64" y="528"/>
+  <object type="c01" gid="34" x="400" y="608"/>
+  <object type="c01" gid="34" x="512" y="608"/>
+  <object type="c01" gid="34" x="640" y="608"/>
+  <object type="c01" gid="34" x="880" y="608"/>
+  <object type="c01" gid="34" x="1024" y="608"/>
  </objectgroup>
 </map>

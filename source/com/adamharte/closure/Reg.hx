@@ -20,8 +20,9 @@ class Reg
 	
 	static public var level:TiledLevel;
 	static public var currentLevel(get, never):LevelData;
+	static public var enemiesKilled:Int = 0;
 	
-	//static public var enemies:FlxGroup;
+	static public var enemies:FlxGroup;
 	static public var bullets:FlxGroup;
 	
 	static public var debugGroup:FlxSprite;
