@@ -114,6 +114,8 @@ class PlayState extends FlxState
 		super.create();
 		
 		FlxG.camera.fade(0xff000000, 1, true);
+		
+		Reg.statusOverlay.show(Reg.currentLevel.levelName);
 	}
 	
 	override public function destroy():Void
@@ -194,7 +196,7 @@ class PlayState extends FlxState
 		Reg.scores[Reg.levelNumber] = Reg.score;
 		//Reg.score = 0;
 		
-		//_statusOverlay.show('SUCCESS');
+		Reg.statusOverlay.show('AREA CLEARED');
 		
 		new FlxTimer().start(1, finishedLevelFade);
 	}
