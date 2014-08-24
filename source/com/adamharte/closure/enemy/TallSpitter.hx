@@ -37,6 +37,7 @@ class TallSpitter extends Enemy
 		
 		_canJump = false;
 		_canWalk = false;
+		_agroDistance = 600;
 		
 		// Setup animations.
 		animation.add('idle', [1, 2, 3, 4], 6);

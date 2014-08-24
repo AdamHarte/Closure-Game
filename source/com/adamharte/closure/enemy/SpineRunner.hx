@@ -29,6 +29,7 @@ class SpineRunner extends Enemy
 		_walkSpeed = FlxRandom.intRanged(50, 70) + (Reg.levelNumber * 2);
 		_jumpTimerLimit = Math.max(1.0 - (Reg.levelNumber * 0.02), 0.01);
 		//_gibQuantity = 5;
+		_agroDistance = 600;
 		
 		drag.x = _walkSpeed * 8;
 		acceleration.y = Reg.gravity;

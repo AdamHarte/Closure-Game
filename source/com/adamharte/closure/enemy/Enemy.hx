@@ -28,6 +28,8 @@ class Enemy extends FlxSprite
 	var _aggression:Int;
 	var _canJump:Bool;
 	var _canWalk:Bool;
+	var _agroDistance:Float; // Distance that the player can get, before waking the enemy.
+	var _agroed:Bool;
 	
 	
 	public function new(X:Float=0, Y:Float=0, ?SimpleGraphic:Dynamic) 
@@ -36,6 +38,8 @@ class Enemy extends FlxSprite
 		
 		_canJump = true;
 		_canWalk = true;
+		_agroDistance = 600;
+		_agroed = false;
 		
 		setFacingFlip(FlxObject.LEFT, false, false);
 		setFacingFlip(FlxObject.RIGHT, true, false);
@@ -51,6 +55,8 @@ class Enemy extends FlxSprite
 		health = _healthMax;
 		_jumpTimer = 0;
 		_shootTimer = 0;
+		
+		animation.play('idle');
 	}
 	
 	override public function destroy():Void 
@@ -81,7 +87,14 @@ class Enemy extends FlxSprite
 		var isTargetRight:Bool = Math.abs(FlxAngle.angleBetween(this, _target)) < (Math.PI * 0.5);
 		_targetDirection = (isTargetRight) ? FlxObject.RIGHT : FlxObject.LEFT;
 		
-		if (!FlxSpriteUtil.isFlickering(this)) 
+		var distanceToPlayer:Float = this.getMidpoint().distanceTo(Reg.player.playerMidPoint);
+		
+		if (distanceToPlayer < _agroDistance) 
+		{
+			_agroed = true;
+		}
+		
+		if (!FlxSpriteUtil.isFlickering(this) && _agroed) 
 		{
 			if (_canWalk && velocity.y == 0) 
 			{
@@ -95,7 +108,7 @@ class Enemy extends FlxSprite
 			if (isTouching(_targetDirection)) // blocked by anything but the mainframe.
 			{
 				_jumpTimer += FlxG.elapsed;
-				if (_canJump && _jumpTimer > _jumpTimerLimit) 
+				if (_canJump && _agroed && _jumpTimer > _jumpTimerLimit) 
 				{
 					velocity.y = -_jumpPower;
 					animation.play('jump');
@@ -110,7 +123,7 @@ class Enemy extends FlxSprite
 				var dir:Int = (_targetDirection == FlxObject.RIGHT) ? 1 : -1;
 				var tile:Int = Reg.level.foregroundTilemap.getTile(tx + dir, ty + 1);
 				var chance:Float = 0.2;
-				if (_canJump && tile == 0 && FlxRandom.chanceRoll(chance)) 
+				if (_canJump && _agroed && tile == 0 && FlxRandom.chanceRoll(chance)) 
 				{
 					velocity.y = -_jumpPower;
 					animation.play('jump');
@@ -133,7 +146,7 @@ class Enemy extends FlxSprite
 		
 		// Shoot
 		_shootTimer = Math.max(_shootTimer - FlxG.elapsed, 0);
-		if (_shootTimer == 0 /*&& (playerDist < minShootRange || mainframeDist < minShootRange)*/) 
+		if (_shootTimer == 0 && _agroed /*&& (playerDist < minShootRange || mainframeDist < minShootRange)*/) 
 		{
 			//var canSeePlayer:Bool = Reg.tileMap.ray(getMidpoint(), _player.playerMidPoint);
 			if (/*canSeePlayer &&*/ FlxRandom.chanceRoll(_aggression)) 
