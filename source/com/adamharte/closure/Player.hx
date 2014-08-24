@@ -9,6 +9,7 @@ import flixel.FlxSprite;
 import flixel.util.FlxAngle;
 import flixel.util.FlxColor;
 import flixel.util.FlxPoint;
+import flixel.util.FlxSpriteUtil;
 
 /**
  * ...
@@ -18,8 +19,10 @@ class Player extends FlxSprite
 {
 	public var playerMidPoint:FlxPoint;
 	
+	var _maxHealth:Int;
 	var _jumpPower:Int;
 	var _weapon:PlayerWeapon;
+	var _restart:Float;
 	var _spawnPoint:FlxPoint;
 	
 	
@@ -29,12 +32,12 @@ class Player extends FlxSprite
 		_weapon = weapon;
 		_weapon.weaponType = WeaponType.RevolverWeapon;
 		
+		_maxHealth = 10;
 		_jumpPower = 300;
 		playerMidPoint = new FlxPoint();
+		_restart = 0;
 		
 		super(startX, startY);
-		
-		
 		
 		//makeGraphic(16, 16, FlxColor.BLUE);
 		loadGraphic('assets/images/player.png', true, 64, 64);
@@ -54,6 +57,8 @@ class Player extends FlxSprite
 		animation.add('idle', [2]);
 		animation.add('run', [3, 4, 5, 6, 7, 8, 9, 10], 12);
 		animation.add('jump', [11, 12, 13, 14], 10, false);
+		
+		health = _maxHealth;
 	}
 	
 	override public function destroy():Void 
@@ -65,7 +70,15 @@ class Player extends FlxSprite
 	
 	override public function update():Void 
 	{
-		
+		if (!alive) 
+		{
+			_restart += FlxG.elapsed;
+			if (_restart > 2) 
+			{
+				respawn();
+			}
+			return;
+		}
 		
 		getMidpoint(playerMidPoint);
 		
@@ -143,6 +156,68 @@ class Player extends FlxSprite
 		}
 		_weapon.setPosition(x + weaponOffset.x, y + weaponOffset.y);
 		
+	}
+	
+	override public function hurt(damage:Float):Void
+	{
+		if (FlxSpriteUtil.isFlickering(this)) 
+		{
+			return;
+		}
+		
+		FlxSpriteUtil.flicker(this, 0.2);
+		
+		super.hurt(damage);
+	}
+	
+	override public function kill():Void
+	{
+		if(!alive)
+		{
+			return;
+		}
+		
+		FlxSpriteUtil.stopFlickering(this);
+		
+		//TODO: Hide arm/weapon.
+		_weapon.kill();
+		
+		//FlxG.sound.play('Explosion', 0.6);
+		
+		super.kill();
+		
+		solid = false;
+		exists = true;
+		visible = false;
+		velocity.set();
+		acceleration.x = 0;
+		
+		//Reg.playerGibs.at(this);
+		//Reg.playerGibs.start(true, 5, 0, 30);
+		
+		FlxG.camera.shake(0.05, 0.4);
+	}
+	
+	
+	
+	function respawn() 
+	{
+		reset(_spawnPoint.x, _spawnPoint.y);
+		solid = true;
+		acceleration.x = 0;
+		velocity.set();
+		_restart = 0;
+		exists = true;
+		visible = true;
+		health = _maxHealth;
+		
+		//TODO: Show arm/weapon.
+		_weapon.reset(x, y);
+		_weapon.exists = true;
+		_weapon.visible = true;
+		_weapon.reload();
+		
+		FlxSpriteUtil.flicker(this, 1.0);
 	}
 	
 }

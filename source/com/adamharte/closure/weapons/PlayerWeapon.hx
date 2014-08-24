@@ -167,4 +167,19 @@ class PlayerWeapon extends FlxSprite
 		_shotReady = true;
 	}
 	
+	override public function kill():Void
+	{
+		if(!alive)
+		{
+			return;
+		}
+		
+		super.kill();
+		
+		solid = false;
+		exists = true;
+		visible = false;
+		
+	}
+	
 }
