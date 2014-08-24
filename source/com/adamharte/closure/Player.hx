@@ -52,7 +52,7 @@ class Player extends FlxSprite
 		drag.x = runSpeed * 8;
 		acceleration.y = Reg.gravity;
 		maxVelocity.x = runSpeed;
-		maxVelocity.y = _jumpPower;
+		maxVelocity.y = _jumpPower * 3;
 		
 		// Setup animations.
 		animation.add('idle', [2]);
