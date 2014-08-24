@@ -19,6 +19,7 @@ class Reg
 	
 	static public var gravity:Float = 840;
 	
+	static public var player:Player;
 	static public var level:TiledLevel;
 	static public var currentLevel(get, never):LevelData;
 	static public var enemiesKilled:Int = 0;

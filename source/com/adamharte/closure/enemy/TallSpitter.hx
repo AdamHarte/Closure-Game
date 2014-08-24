@@ -1,5 +1,6 @@
 package com.adamharte.closure.enemy;
 import com.adamharte.closure.weapons.BombBullet;
+import flixel.FlxObject;
 import flixel.group.FlxGroup;
 import flixel.util.FlxAngle;
 import flixel.util.FlxRandom;
@@ -71,8 +72,8 @@ class TallSpitter extends Enemy
 		
 		var mid = getMidpoint();
 		mid.y -= 25;
-		var playerMid = _player.getMidpoint();
-		var shootAngle = FlxAngle.asRadians(FlxAngle.getAngle(mid, playerMid) - 90);
+		var shootAngle = FlxAngle.asRadians(FlxAngle.getAngle(mid, _player.playerMidPoint) - 90);
+		//shootAngle += (facing == FlxObject.RIGHT) ? Math.PI * -0.3 : Math.PI ;
 		bullet.shoot(mid, shootAngle);
 		
 		animation.play('shoot');

@@ -73,6 +73,7 @@ class PlayState extends FlxState
 		
 		_playerWeapon = new PlayerWeapon();
 		_player = new Player(_level.playerSpawn.x, _level.playerSpawn.y, _playerWeapon);
+		Reg.player = _player;
 		//_player.velocity.set(150, -300);
 		
 		_hud = new Hud();
@@ -127,6 +128,7 @@ class PlayState extends FlxState
 		_hud = null;
 		Reg.statusOverlay = null;
 		_player = null;
+		Reg.player = null;
 		_playerItems = null;
 		_playerWeapon = null;
 		_portal = null;

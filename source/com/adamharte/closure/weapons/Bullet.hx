@@ -103,6 +103,15 @@ class Bullet extends FlxSprite
 				}
 			}
 		});*/
+		
+		var dist:Float = this.getMidpoint().distanceTo(Reg.player.playerMidPoint);
+		if (dist < splashDamageRadius) 
+		{
+			var delta:Float = 1 - (dist / splashDamageRadius);
+			trace(damage * delta);
+			Reg.player.hurt(damage * delta);
+		}
+		
 	}
 	
 }
