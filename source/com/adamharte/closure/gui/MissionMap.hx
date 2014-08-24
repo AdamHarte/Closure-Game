@@ -15,7 +15,7 @@ import flixel.util.FlxRandom;
  * ...
  * @author Adam Harte (adam@adamharte.com)
  */
-class MissionMap extends FlxSubState
+class MissionMap extends FlxState
 {
 	var _bgBlocker:FlxSprite;
 	var _container:FlxSpriteGroup;
@@ -51,6 +51,8 @@ class MissionMap extends FlxSubState
 		setAll('scrollFactor', scrollPt);
 		
 		super.create();
+		
+		FlxG.camera.fade(0xff000000, 1, true);
 	}
 	
 	
@@ -102,7 +104,6 @@ class MissionMap extends FlxSubState
 	function missionClick(levelIndex:Int) 
 	{
 		Reg.levelNumber = levelIndex;
-		close();
 		FlxG.switchState(new PlayState());
 	}
 	

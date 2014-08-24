@@ -198,7 +198,7 @@ class PlayState extends FlxState
 		
 		if(FlxG.keys.justPressed.E)
 		{
-			openSubState(new MissionMap());
+			FlxG.switchState(new MissionMap());
 		}
 		
 		/*if (FlxG.mouse.wheel != 0) 
@@ -261,7 +261,7 @@ class PlayState extends FlxState
 	function winLevelFadeHandler():Void 
 	{
 		//TODO: Go to town level.
-		openSubState(new MissionMap());
+		FlxG.switchState(new MissionMap());
 	}
 	
 	
