@@ -108,7 +108,6 @@ class Bullet extends FlxSprite
 		if (dist < splashDamageRadius) 
 		{
 			var delta:Float = 1 - (dist / splashDamageRadius);
-			trace(damage * delta);
 			Reg.player.hurt(damage * delta);
 		}
 		

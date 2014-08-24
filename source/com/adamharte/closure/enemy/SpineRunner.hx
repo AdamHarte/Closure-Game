@@ -23,9 +23,9 @@ class SpineRunner extends Enemy
 		offset.x = 2;
 		offset.y = 26;
 		
-		_healthMax = 2;
+		_healthMax = 4;
 		_reloadTime = 2.0;
-		_jumpPower = 200;
+		_jumpPower = 240;
 		_walkSpeed = FlxRandom.intRanged(50, 70) + (Reg.levelNumber * 2);
 		_jumpTimerLimit = Math.max(1.0 - (Reg.levelNumber * 0.02), 0.01);
 		//_gibQuantity = 5;
