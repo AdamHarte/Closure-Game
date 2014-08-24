@@ -41,7 +41,7 @@ class MissionMap extends FlxSubState
 			
 			if (!levelData.completed) 
 			{
-				var missionBtn:FlxButton = new FlxButton(100, levelNum * 40, levelData.levelName, missionClick.bind(levelData.levelIndex));
+				var missionBtn:FlxButton = new FlxButton(100, levelNum * 25 + 50, levelData.levelName, missionClick.bind(levelData.levelIndex));
 				add(missionBtn);
 			}
 		}
