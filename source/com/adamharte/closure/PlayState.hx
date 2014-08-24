@@ -2,7 +2,9 @@ package com.adamharte.closure;
 
 import com.adamharte.closure.enemy.Enemy;
 import com.adamharte.closure.enemy.SpineRunner;
+import com.adamharte.closure.gui.Hud;
 import com.adamharte.closure.gui.MissionMap;
+import com.adamharte.closure.gui.StatusOverlay;
 import com.adamharte.closure.sprites.Portal;
 import com.adamharte.closure.weapons.Bullet;
 import com.adamharte.closure.weapons.PlayerWeapon;
@@ -30,6 +32,7 @@ class PlayState extends FlxState
 	var levelObjectsPath:String;
 	
 	var _cameraFollowPoint:FlxObject;
+	var _hud:Hud;
 	var _level:TiledLevel;
 	var _player:Player;
 	var _playerItems:FlxGroup;
@@ -71,6 +74,9 @@ class PlayState extends FlxState
 		_player = new Player(_level.playerSpawn.x, _level.playerSpawn.y, _playerWeapon);
 		//_player.velocity.set(150, -300);
 		
+		_hud = new Hud();
+		Reg.statusOverlay = new StatusOverlay();
+		
 		add(_level.foregroundTiles);
 		add(_portal);
 		add(_player);
@@ -79,6 +85,8 @@ class PlayState extends FlxState
 		add(Reg.enemies);
 		add(Reg.bullets);
 		add(Reg.enemyBullets);
+		add(_hud);
+		add(Reg.statusOverlay);
 		
 		spawnEnemies();
 		
@@ -113,6 +121,8 @@ class PlayState extends FlxState
 		super.destroy();
 		
 		_level = null;
+		_hud = null;
+		Reg.statusOverlay = null;
 		_player = null;
 		_playerItems = null;
 		_playerWeapon = null;
@@ -142,6 +152,8 @@ class PlayState extends FlxState
 		_level.collideWithLevel(_objects);
 		FlxG.overlap(_hazards, _player, overlapHandler);
 		FlxG.overlap(Reg.bullets, _hazards, shootHazardsOverlapHandler);
+		
+		_hud.playerHealth = _player.health;
 		
 		if(FlxG.keys.justPressed.E)
 		{
