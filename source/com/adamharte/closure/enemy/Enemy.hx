@@ -144,6 +144,11 @@ class Enemy extends FlxSprite
 			facing = FlxObject.LEFT;
 		}
 		
+		if (!_canWalk) 
+		{
+			facing = (this.getMidpoint().x - Reg.player.playerMidPoint.x > 0) ? FlxObject.LEFT : FlxObject.RIGHT;
+		}
+		
 		// Shoot
 		_shootTimer = Math.max(_shootTimer - FlxG.elapsed, 0);
 		if (_shootTimer == 0 && _agroed /*&& (playerDist < minShootRange || mainframeDist < minShootRange)*/) 
