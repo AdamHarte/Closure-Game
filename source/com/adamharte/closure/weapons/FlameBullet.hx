@@ -13,7 +13,7 @@ class FlameBullet extends Bullet
 	{
 		super();
 		
-		loadGraphic('assets/images/projectiles.png', true);
+		loadGraphic('assets/images/projectiles.png', true, 16, 16);
 		width = 6;
 		height = 6;
 		offset.set(6, 5);

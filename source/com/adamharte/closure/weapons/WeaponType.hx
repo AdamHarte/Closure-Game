@@ -9,4 +9,5 @@ enum WeaponType
 	RevolverWeapon;
 	BowWeapon;
 	FlameWeapon;
+	BombWeapon;
 }

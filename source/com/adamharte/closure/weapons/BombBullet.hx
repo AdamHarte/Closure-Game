@@ -1,5 +1,4 @@
 package com.adamharte.closure.weapons;
-import flixel.FlxG;
 import flixel.util.FlxPoint;
 import flixel.util.FlxRandom;
 
@@ -7,7 +6,7 @@ import flixel.util.FlxRandom;
  * ...
  * @author Adam Harte (adam@adamharte.com)
  */
-class RevolverBullet extends Bullet
+class BombBullet extends Bullet
 {
 
 	public function new() 
@@ -15,11 +14,12 @@ class RevolverBullet extends Bullet
 		super();
 		
 		loadGraphic('assets/images/projectiles.png', true, 16, 16);
-		width = 16;
-		height = 14;
+		width = 11;
+		height = 11;
+		//offset.set(6, 5);
 		
-		animation.add('idle', [0]);
-		animation.add('hit', [1, 2, 3], 24, false);
+		animation.add('idle', [8, 9, 10, 11], 12);
+		animation.add('hit', [8], 24, false);
 	}
 	
 	override public function kill():Void

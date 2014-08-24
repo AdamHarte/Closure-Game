@@ -35,7 +35,7 @@
    <property name="tileset" value="level_tiles"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztm9sOgjAQBesV8fL/vys8NDHGttvScpDOJOe1rtthAYXBOTcQQrrOecozkMsG6iupfet1q/qU6kvMhVh+rWtd6+XCPArrWSuh2r/r7tVH74DvU2o/Yy7E+LVu6Vp7ZO5PjoOpY3eJz5a5UGt9HNgOV5c/L0L4473Ek5uh1iXnHZzbJhb/LG58UuIJfvRJyr959uEGtCLlX+7sA8gh5d845SSrDvZOi+s/ACv4B0rwD5TgHyjBP1CCf6AE/0AJ/oES/AMl+AdKeP4AlPD8ASjBP1CCf6AE/0DFYcrd4R9o4N4XlHDuBSX4B0rwD5RY3j06Ot4/gjZY/vtlDkIr8A+UWP3b0zvA82+eXFMsx/cxllSPrf790wxM9cX/3j46e5/WpMa+tvjMUB8t9w9L1qg9A0u+a+2+5PZpzdTY11x/c+aQMjX2qcQP0nYf2RNCCCGk77wBQ2QxXQ==
+   eJztm9kOgyAQRelq1///3eoDSdOIMyB4rZ6T3Fc6wnGoWxdC6Aghu865zyuRywrqK6l97XWr5smalykXpjI2rnesd0jzLKxnqaRq/617rz5GB+I8Wes55cIUY+OWjrVFhvnJcdA6d+f47OkLtcbHgfVwDfn9IkU830s8uTlqnbPv4Nw68fjnceObEk/wY59Y/g29DzegFZZ/ub0PIAfLv3ufk6w62Dot/v8BeME/UIJ/oAT/QAn+gRL8AyX4B0rwD5TgHyjBP1DC+weghPcPQAn+gRL8AyX4ByoOfR4B/0AD176ghL0XlOAfKME/UOL59ugY+P4I2uB59ksfhDGGeydHI1bfwj8opcZ7K17/tvQNcDxvt3I8Kpb07596oLUvxPvt9+DfJ5akxr7W4jdT8+i5fpgzRu0eWHKstecld56WTI11zfU3pw8pU2OdSvwgbdeRNSGEEEL2nQ+w6zHp
   </data>
  </layer>
  <objectgroup name="objects" width="160" height="40">
@@ -47,5 +47,7 @@
   <object type="c01" gid="25" x="896" y="528"/>
   <object type="c01" gid="25" x="1392" y="560"/>
   <object type="c01" gid="25" x="1056" y="560"/>
+  <object type="c02" gid="26" x="1520" y="544"/>
+  <object type="c02" gid="26" x="2192" y="496"/>
  </objectgroup>
 </map>

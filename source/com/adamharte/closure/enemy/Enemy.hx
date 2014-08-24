@@ -26,11 +26,16 @@ class Enemy extends FlxSprite
 	var _jumpTimerLimit:Float;
 	var _shootTimer:Float;
 	var _aggression:Int;
+	var _canJump:Bool;
+	var _canWalk:Bool;
 	
 	
 	public function new(X:Float=0, Y:Float=0, ?SimpleGraphic:Dynamic) 
 	{
 		super(X, Y, SimpleGraphic);
+		
+		_canJump = true;
+		_canWalk = true;
 		
 		setFacingFlip(FlxObject.LEFT, false, false);
 		setFacingFlip(FlxObject.RIGHT, true, false);
@@ -78,7 +83,7 @@ class Enemy extends FlxSprite
 		
 		if (!FlxSpriteUtil.isFlickering(this)) 
 		{
-			if (velocity.y == 0) 
+			if (_canWalk && velocity.y == 0) 
 			{
 				animation.play('walk');
 			}
@@ -90,7 +95,7 @@ class Enemy extends FlxSprite
 			if (isTouching(_targetDirection)) // blocked by anything but the mainframe.
 			{
 				_jumpTimer += FlxG.elapsed;
-				if (_jumpTimer > _jumpTimerLimit) 
+				if (_canJump && _jumpTimer > _jumpTimerLimit) 
 				{
 					velocity.y = -_jumpPower;
 					animation.play('jump');
@@ -105,7 +110,7 @@ class Enemy extends FlxSprite
 				var dir:Int = (_targetDirection == FlxObject.RIGHT) ? 1 : -1;
 				var tile:Int = Reg.level.foregroundTilemap.getTile(tx + dir, ty + 1);
 				var chance:Float = 0.2;
-				if (tile == 0 && FlxRandom.chanceRoll(chance)) 
+				if (_canJump && tile == 0 && FlxRandom.chanceRoll(chance)) 
 				{
 					velocity.y = -_jumpPower;
 					animation.play('jump');

@@ -65,6 +65,8 @@ class PlayerWeapon extends FlxSprite
 				//_shootSoundSlow = 'ShootSlow';
 			case WeaponType.FlameWeapon:
 				//
+			case WeaponType.BombWeapon:
+				//
 		}
 		return _weaponType = value;
 	}
@@ -154,6 +156,9 @@ class PlayerWeapon extends FlxSprite
 				bullet.speed = _bulletSpeed;
 			case WeaponType.FlameWeapon:
 				bullet = cast(Reg.bullets.recycle(FlameBullet), FlameBullet);
+				bullet.speed = _bulletSpeed;
+			case WeaponType.BombWeapon:
+				bullet = cast(Reg.bullets.recycle(RevolverBullet), RevolverBullet);
 				bullet.speed = _bulletSpeed;
 		}
 		

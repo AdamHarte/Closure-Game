@@ -2,6 +2,7 @@ package com.adamharte.closure;
 
 import com.adamharte.closure.enemy.Enemy;
 import com.adamharte.closure.enemy.SpineRunner;
+import com.adamharte.closure.enemy.TallSpitter;
 import com.adamharte.closure.gui.Hud;
 import com.adamharte.closure.gui.MissionMap;
 import com.adamharte.closure.gui.StatusOverlay;
@@ -184,9 +185,14 @@ class PlayState extends FlxState
 	
 	function spawnEnemies() 
 	{
-		for (creaturePoint in _level.creatures) 
+		for (creaturePoint in _level.creatures01) 
 		{
 			var creature:SpineRunner = cast(Reg.enemies.recycle(SpineRunner), SpineRunner);
+			creature.init(creaturePoint.x, creaturePoint.y, _player);
+		}
+		for (creaturePoint in _level.creatures02) 
+		{
+			var creature:TallSpitter = cast(Reg.enemies.recycle(TallSpitter), TallSpitter);
 			creature.init(creaturePoint.x, creaturePoint.y, _player);
 		}
 	}
