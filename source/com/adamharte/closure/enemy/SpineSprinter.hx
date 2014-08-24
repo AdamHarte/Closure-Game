@@ -1,7 +1,6 @@
 package com.adamharte.closure.enemy;
 import com.adamharte.closure.weapons.FlameBullet;
 import flixel.FlxG;
-import flixel.FlxObject;
 import flixel.group.FlxGroup;
 import flixel.util.FlxAngle;
 import flixel.util.FlxRandom;
@@ -10,26 +9,25 @@ import flixel.util.FlxRandom;
  * ...
  * @author Adam Harte (adam@adamharte.com)
  */
-class SpineRunner extends Enemy
+class SpineSprinter extends Enemy
 {
-
 	public function new() 
 	{
 		super();
 		
-		loadGraphic('assets/images/creatures_01.png', true, 64, 64);
-		width = 62;
-		height = 38;
-		offset.x = 2;
-		offset.y = 26;
+		loadGraphic('assets/images/creatures_03.png', true, 64, 64);
+		width = 28;
+		height = 17;
+		offset.x = 20;
+		offset.y = 32;
 		
-		_healthMax = 2;
-		_reloadTime = 2.0;
-		_jumpPower = 200;
-		_walkSpeed = FlxRandom.intRanged(50, 70) + (Reg.levelNumber * 2);
+		_healthMax = 1;
+		_reloadTime = 4.0;
+		_jumpPower = 400;
+		_walkSpeed = FlxRandom.intRanged(70, 120) + (Reg.levelNumber * 2);
 		_jumpTimerLimit = Math.max(1.0 - (Reg.levelNumber * 0.02), 0.01);
 		//_gibQuantity = 5;
-		_agroDistance = 600;
+		_agroDistance = 800;
 		
 		drag.x = _walkSpeed * 8;
 		acceleration.y = Reg.gravity;
@@ -50,7 +48,7 @@ class SpineRunner extends Enemy
 	{
 		super.init(xPos, yPos, player, Reg.enemyBullets);
 		
-		_aggression = FlxRandom.intRanged(0, 3);// 0; // Stop enemy from shooting.
+		_aggression = FlxRandom.intRanged(0, 2);// 0; // Stop enemy from shooting.
 	}
 	
 	override function shoot() 
@@ -72,5 +70,4 @@ class SpineRunner extends Enemy
 		var shootAngle = FlxAngle.asRadians(FlxAngle.getAngle(mid, playerMid) - 90);
 		bullet.shoot(mid, shootAngle);
 	}
-	
 }

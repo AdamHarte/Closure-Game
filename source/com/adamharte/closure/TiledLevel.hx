@@ -32,6 +32,7 @@ class TiledLevel extends TiledMap
 	public var portal:FlxPoint;
 	public var creatures01:Array<FlxPoint>;
 	public var creatures02:Array<FlxPoint>;
+	public var creatures03:Array<FlxPoint>;
 	
 	private var collidableTileLayers:Array<FlxTilemap>;
 	
@@ -101,6 +102,7 @@ class TiledLevel extends TiledMap
 		portal = new FlxPoint();
 		creatures01 = [];
 		creatures02 = [];
+		creatures03 = [];
 		
 		for (group in objectGroups)
 		{
@@ -138,6 +140,10 @@ class TiledLevel extends TiledMap
 			case 'c02':
 				Reg.currentLevel.enemyCount++;
 				creatures02.push(new FlxPoint(x, y));
+				
+			case 'c03':
+				Reg.currentLevel.enemyCount++;
+				creatures03.push(new FlxPoint(x, y));
 				
 			default:
 				throw 'Unknown tile: "' + objectToLoad.type.toLowerCase() + ', at [' + x +', '+ y + ']';
