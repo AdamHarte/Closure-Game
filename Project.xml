@@ -36,6 +36,7 @@
 		<sound path="sounds/jump01.wav" id="Jump" />
 		<sound path="sounds/blast03.wav" id="ShootFire1" />
 		<sound path="sounds/blast04.wav" id="ShootFire2" />
+		<sound path="sounds/explosion07.wav" id="Explosion1" />
 	</assets>
 	
 	<assets path="assets" if="flash">
@@ -43,6 +44,7 @@
 		<sound path="sounds/jump01.mp3" id="Jump" />
 		<sound path="sounds/blast03.mp3" id="ShootFire1" />
 		<sound path="sounds/blast04.mp3" id="ShootFire2" />
+		<sound path="sounds/explosion07.mp3" id="Explosion1" />
 	</assets>
 	
 	<assets path="assets" exclude="*.wav|*.bak|*.dam" if="flash" />

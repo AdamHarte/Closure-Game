@@ -1,6 +1,7 @@
 package com.adamharte.closure;
 
 import com.adamharte.closure.gui.StatusOverlay;
+import flixel.effects.particles.FlxEmitter;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup;
 import flixel.util.FlxSave;
@@ -27,6 +28,11 @@ class Reg
 	static public var enemies:FlxGroup;
 	static public var bullets:FlxGroup;
 	static public var enemyBullets:FlxGroup;
+	
+	static public var bulletWoundGibs:FlxEmitter;
+	static public var goreGibs:FlxEmitter;
+	static public var goreSmallGibs:FlxEmitter;
+	//static public var explosionGibs:FlxEmitter;
 	
 	static public var statusOverlay:StatusOverlay;
 	static public var debugGroup:FlxSprite;

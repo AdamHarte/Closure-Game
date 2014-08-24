@@ -64,6 +64,11 @@ class BombBullet extends Bullet
 			return;
 		}
 		
+		Reg.goreGibs.at(this);
+		Reg.goreGibs.start(true, 3, 0, 15);
+		Reg.goreSmallGibs.at(this);
+		Reg.goreSmallGibs.start(true, 2, 0, 30);
+		
 		animation.play('explode');
 		
 		//var hitSound:String = (FlxRandom.chanceRoll()) ? 'Hit1' : 'Hit2';

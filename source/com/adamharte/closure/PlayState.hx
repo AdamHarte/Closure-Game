@@ -9,6 +9,7 @@ import com.adamharte.closure.gui.StatusOverlay;
 import com.adamharte.closure.sprites.Portal;
 import com.adamharte.closure.weapons.Bullet;
 import com.adamharte.closure.weapons.PlayerWeapon;
+import flixel.effects.particles.FlxEmitter;
 import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxObject;
@@ -57,6 +58,30 @@ class PlayState extends FlxState
 		Reg.score = 0;
 		Reg.enemiesKilled = 0;
 		
+		Reg.bulletWoundGibs = new FlxEmitter();
+		Reg.bulletWoundGibs.setXSpeed(-100, 100);
+		Reg.bulletWoundGibs.setYSpeed(-60, 20);
+		Reg.bulletWoundGibs.setRotation(-720, -720);
+		Reg.bulletWoundGibs.gravity = 360;
+		Reg.bulletWoundGibs.bounce = 0.1;
+		Reg.bulletWoundGibs.makeParticles('assets/images/gore_sml_gibs.png', 60, 16, true, 0.5);
+		
+		Reg.goreGibs = new FlxEmitter();
+		Reg.goreGibs.setXSpeed(-150, 150);
+		Reg.goreGibs.setYSpeed(-400, 0);
+		Reg.goreGibs.setRotation(-720, -720);
+		Reg.goreGibs.gravity = 360;
+		Reg.goreGibs.bounce = 0.5;
+		Reg.goreGibs.makeParticles('assets/images/gore_gibs.png', 60, 16, true, 0.5);
+		
+		Reg.goreSmallGibs = new FlxEmitter();
+		Reg.goreSmallGibs.setXSpeed(-150, 150);
+		Reg.goreSmallGibs.setYSpeed(-400, 0);
+		Reg.goreSmallGibs.setRotation(-720, -720);
+		Reg.goreSmallGibs.gravity = 360;
+		Reg.goreSmallGibs.bounce = 0.5;
+		Reg.goreSmallGibs.makeParticles('assets/images/gore_sml_gibs.png', 60, 16, true, 0.5);
+		
 		_portal = new Portal();
 		
 		// Setup groups.
@@ -87,6 +112,10 @@ class PlayState extends FlxState
 		add(Reg.enemies);
 		add(Reg.bullets);
 		add(Reg.enemyBullets);
+		add(Reg.bulletWoundGibs);
+		add(Reg.goreGibs);
+		add(Reg.goreSmallGibs);
+		//add(Reg.explosionGibs);
 		add(_hud);
 		add(Reg.statusOverlay);
 		
@@ -101,6 +130,9 @@ class PlayState extends FlxState
 		_objects.add(Reg.enemies);
 		_objects.add(Reg.bullets);
 		_objects.add(Reg.enemyBullets);
+		_objects.add(Reg.bulletWoundGibs);
+		_objects.add(Reg.goreGibs);
+		_objects.add(Reg.goreSmallGibs);
 		
 		_cameraFollowPoint = new FlxObject();
 		_cameraFollowPoint.setPosition(_player.x, _player.y);
@@ -135,6 +167,10 @@ class PlayState extends FlxState
 		Reg.enemies = null;
 		Reg.bullets = null;
 		Reg.enemyBullets = null;
+		Reg.bulletWoundGibs = null;
+		Reg.goreGibs = null;
+		Reg.goreSmallGibs = null;
+		//Reg.explosionGibs = null;
 		
 		_objects = null;
 	}
@@ -241,6 +277,17 @@ class PlayState extends FlxState
 		if (Std.is(hazard, Bullet)) 
 		{
 			var enemyBullet:Bullet = cast(hazard, Bullet);
+			if (enemyBullet.velocity.x > 0) 
+			{
+				Reg.bulletWoundGibs.setXSpeed(-10, 100);
+			}
+			else 
+			{
+				Reg.bulletWoundGibs.setXSpeed(-100, 10);
+			}
+			
+			Reg.bulletWoundGibs.at(enemyBullet);
+			Reg.bulletWoundGibs.start(true, 3, 0, 20);
 			enemyBullet.kill();
 			
 			friendly.hurt(enemyBullet.damage);
@@ -259,6 +306,17 @@ class PlayState extends FlxState
 			playerBullet.kill();
 			if (!playerBullet.splashDamage) 
 			{
+				if (playerBullet.velocity.x > 0) 
+				{
+					Reg.bulletWoundGibs.setXSpeed(-10, 100);
+				}
+				else 
+				{
+					Reg.bulletWoundGibs.setXSpeed(-100, 10);
+				}
+				
+				Reg.bulletWoundGibs.at(playerBullet);
+				Reg.bulletWoundGibs.start(true, 3, 0, 20);
 				hazard.hurt(playerBullet.damage);
 			}
 		}
