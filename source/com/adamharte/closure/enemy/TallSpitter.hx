@@ -43,7 +43,7 @@ class TallSpitter extends Enemy
 		animation.add('hit', [6, 8, 3, 1], 6);
 		//animation.add('jump', [2, 3, 4], 6, false);
 		animation.add('shoot', [5, 6, 7, 8, 9, 10, 11], 12, false);
-		//animation.add('death', [10, 11, 12, 13], 6, false);
+		animation.add('death', [12, 13, 14, 15], 12, false);
 		
 		animation.play('idle');
 	}
@@ -82,6 +82,10 @@ class TallSpitter extends Enemy
 	
 	function shootEndTimer(timer:FlxTimer) 
 	{
+		if (!alive) 
+		{
+			return;
+		}
 		animation.play('idle');
 	}
 	
