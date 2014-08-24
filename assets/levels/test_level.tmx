@@ -25,6 +25,9 @@
  <tileset firstgid="33" name="enemies" tilewidth="32" tileheight="32">
   <image source="../images/enemies.png" width="256" height="32"/>
  </tileset>
+ <tileset firstgid="41" name="objects" tilewidth="64" tileheight="64">
+  <image source="../images/objects.png" width="512" height="64"/>
+ </tileset>
  <layer name="Foreground" width="80" height="40">
   <properties>
    <property name="tileset" value="level_tiles"/>
@@ -34,11 +37,11 @@
   </data>
  </layer>
  <objectgroup name="objects" width="80" height="40">
-  <object type="player" gid="18" x="64" y="528"/>
   <object type="c01" gid="34" x="400" y="608"/>
   <object type="c01" gid="34" x="512" y="608"/>
   <object type="c01" gid="34" x="640" y="608"/>
   <object type="c01" gid="34" x="880" y="608"/>
   <object type="c01" gid="34" x="1024" y="608"/>
+  <object type="portal" gid="42" x="48" y="608"/>
  </objectgroup>
 </map>

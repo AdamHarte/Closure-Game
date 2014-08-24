@@ -29,6 +29,7 @@ class TiledLevel extends TiledMap
 	public var foregroundTilemap:FlxTilemap;
 	public var backgroundTiles:FlxGroup;
 	public var playerSpawn:FlxPoint;
+	public var portal:FlxPoint;
 	public var creatures:Array<FlxPoint>;
 	
 	private var collidableTileLayers:Array<FlxTilemap>;
@@ -96,6 +97,7 @@ class TiledLevel extends TiledMap
 	public function loadObjects()
 	{
 		playerSpawn = new FlxPoint();
+		portal = new FlxPoint();
 		creatures = [];
 		
 		for (group in objectGroups)
@@ -120,8 +122,12 @@ class TiledLevel extends TiledMap
 		
 		switch (objectToLoad.type.toLowerCase())
 		{
-			case 'player':
-				playerSpawn.set(x, y);
+			/*case 'player':
+				playerSpawn.set(x, y);*/
+				
+			case 'portal':
+				portal.set(x, y);
+				playerSpawn.set(x + 64, y);
 				
 			case 'c01':
 				creatures.push(new FlxPoint(x, y));

@@ -2,6 +2,7 @@ package com.adamharte.closure;
 
 import com.adamharte.closure.enemy.Enemy;
 import com.adamharte.closure.enemy.SpineRunner;
+import com.adamharte.closure.sprites.Portal;
 import com.adamharte.closure.weapons.Bullet;
 import com.adamharte.closure.weapons.PlayerWeapon;
 import flixel.FlxCamera;
@@ -31,6 +32,7 @@ class PlayState extends FlxState
 	var _player:Player;
 	var _playerItems:FlxGroup;
 	var _playerWeapon:PlayerWeapon;
+	var _portal:Portal;
 	
 	// Collision groups
 	var _hazards:FlxGroup;
@@ -45,6 +47,8 @@ class PlayState extends FlxState
 		Reg.score = 0;
 		Reg.enemiesKilled = 0;
 		
+		_portal = new Portal();
+		
 		// Setup groups.
 		Reg.enemies = new FlxGroup();
 		Reg.bullets = new FlxGroup();
@@ -58,8 +62,10 @@ class PlayState extends FlxState
 		
 		_playerWeapon = new PlayerWeapon();
 		_player = new Player(_level.playerSpawn.x, _level.playerSpawn.y, _playerWeapon);
+		//_player.velocity.set(150, -300);
 		
 		add(_level.foregroundTiles);
+		add(_portal);
 		add(_player);
 		add(_playerItems);
 		_playerItems.add(_playerWeapon);
@@ -100,6 +106,7 @@ class PlayState extends FlxState
 		_player = null;
 		_playerItems = null;
 		_playerWeapon = null;
+		_portal = null;
 		Reg.enemies = null;
 		Reg.bullets = null;
 		
@@ -129,7 +136,7 @@ class PlayState extends FlxState
 	{
 		_level.loadObjects();
 		
-		
+		_portal.init(_level.portal.x, _level.portal.y);
 		
 	}
 	
