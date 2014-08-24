@@ -162,6 +162,13 @@ class PlayState extends FlxState
 			openSubState(new MissionMap());
 		}
 		
+		/*if (FlxG.mouse.wheel != 0) 
+		{
+			//FlxG.game.width *= (FlxG.mouse.wheel > 0) ? 1.1 : 0.9;
+			//FlxG.game.height *= (FlxG.mouse.wheel > 0) ? 1.1 : 0.9;
+			//FlxG.camera.zoom += (FlxG.mouse.wheel > 0) ? 0.2 : -0.2;
+		}*/
+		
 		super.update();
 	}
 	
