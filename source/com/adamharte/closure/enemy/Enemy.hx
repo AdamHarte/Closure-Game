@@ -142,6 +142,11 @@ class Enemy extends FlxSprite
 	
 	override public function hurt(damage:Float):Void 
 	{
+		if (!alive) 
+		{
+			return;
+		}
+		
 		animation.play('hit');
 		FlxSpriteUtil.flicker(this, 0.4);
 		Reg.score += 10;
