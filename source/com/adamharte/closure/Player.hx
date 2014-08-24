@@ -10,6 +10,7 @@ import flixel.util.FlxAngle;
 import flixel.util.FlxColor;
 import flixel.util.FlxPoint;
 import flixel.util.FlxSpriteUtil;
+import flixel.util.FlxTimer;
 
 /**
  * ...
@@ -66,6 +67,8 @@ class Player extends FlxSprite
 		super.destroy();
 		
 		playerMidPoint = null;
+		_weapon = null;
+		_spawnPoint = null;
 	}
 	
 	override public function update():Void 
@@ -75,7 +78,8 @@ class Player extends FlxSprite
 			_restart += FlxG.elapsed;
 			if (_restart > 2) 
 			{
-				respawn();
+				//respawn();
+				FlxG.switchState(new PlayState());
 			}
 			return;
 		}
