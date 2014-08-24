@@ -35,13 +35,13 @@
    <property name="tileset" value="level_tiles"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztm9kOgyAQRelq1///3eoDSdOIMyB4rZ6T3Fc6wnGoWxdC6Aghu865zyuRywrqK6l97XWr5smalykXpjI2rnesd0jzLKxnqaRq/617rz5GB+I8Wes55cIUY+OWjrVFhvnJcdA6d+f47OkLtcbHgfVwDfn9IkU830s8uTlqnbPv4Nw68fjnceObEk/wY59Y/g29DzegFZZ/ub0PIAfLv3ufk6w62Dot/v8BeME/UIJ/oAT/QAn+gRL8AyX4B0rwD5TgHyjBP1DC+weghPcPQAn+gRL8AyX4ByoOfR4B/0AD176ghL0XlOAfKME/UOL59ugY+P4I2uB59ksfhDGGeydHI1bfwj8opcZ7K17/tvQNcDxvt3I8Kpb07596oLUvxPvt9+DfJ5akxr7W4jdT8+i5fpgzRu0eWHKstecld56WTI11zfU3pw8pU2OdSvwgbdeRNSGEEEL2nQ+w6zHp
+   eJztnO2OgyAQRd1du90v3/91tyYlIQQY0IEBe05yf1UtzFwGNOJ9WZY7QqhI60N/CroN0Jea/ozS3leVy9O26PC7HMtxzi+p83PnlPYnbC9+7KsvOUWn+TzZjpinNcdMbVtnlzQ39ByDM/ivJymv98jJ2vj/Suc6F4MjbViDc6U+fT/0IbTnLJL/9ja2qGWanMlJqfZcvD/10+D6tWM8NRZz2oJz/bw6H6xBHP1+O6U8+RY5VpIUS/f/rceBBntcW9fCMD9a17Qe474nfW/X1MWW66PYOCgZE73xY9DCK3sctOvfKOubGKl7wFibpZrca36y9KhfA1t4JaxbGjHtsc7SIjZ3156bi1ns/is8/uhavFcNjc0DYb9uid9yfY2tp0rWYSUxGrkGapOLWczX4fFb5rczdbekhpb4NJyDY/3y253rj8a6bKZnDFdE06MluUp5ywr8Nz41zxNG8FQN+A8swX9gCf4DS/AfWIL/wBL8B5bgP7DkCu8YwbxI/qP2QUvwH1iC/8AS/AdW7O+kS+8g4j9oBfe+YAlzL1iC/8AS/AeWSP6baX8rzEfpnljqIISU7Oev2QuF/6AGjfdWSv030x5gCTdur9IfK3r6b6YaKM0L7nm7v592JC9qzGst/rP22zhhjI9eQ7sGHumrdlxq49RTGnmt9e8s3w7UyFPLb46gY3kkJwghhNBr6x/N0UAI
   </data>
  </layer>
  <objectgroup name="objects" width="160" height="40">
   <object type="portal" gid="17" x="128" y="576"/>
   <object type="c01" gid="25" x="592" y="560"/>
-  <object type="c01" gid="25" x="752" y="560"/>
+  <object type="c01" gid="25" x="768" y="544"/>
   <object type="c01" gid="25" x="1152" y="560"/>
   <object type="c01" gid="25" x="1296" y="560"/>
   <object type="c01" gid="25" x="896" y="528"/>
@@ -49,5 +49,19 @@
   <object type="c01" gid="25" x="1056" y="560"/>
   <object type="c02" gid="26" x="1520" y="544"/>
   <object type="c02" gid="26" x="2192" y="496"/>
+  <object type="c03" gid="27" x="880" y="96"/>
+  <object type="c03" gid="27" x="928" y="96"/>
+  <object type="c03" gid="27" x="688" y="96"/>
+  <object type="c03" gid="27" x="704" y="96"/>
+  <object type="c03" gid="27" x="1248" y="112"/>
+  <object type="c03" gid="27" x="1296" y="112"/>
+  <object type="c03" gid="27" x="1424" y="128"/>
+  <object type="c03" gid="27" x="1376" y="128"/>
+  <object type="c03" gid="27" x="1520" y="144"/>
+  <object type="c03" gid="27" x="1568" y="144"/>
+  <object type="c03" gid="27" x="1664" y="160"/>
+  <object type="c01" gid="25" x="1712" y="160"/>
+  <object type="c03" gid="27" x="1008" y="96"/>
+  <object type="c03" gid="27" x="960" y="96"/>
  </objectgroup>
 </map>

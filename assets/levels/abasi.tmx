@@ -47,5 +47,7 @@
   <object type="c01" gid="25" x="896" y="544"/>
   <object type="c01" gid="25" x="784" y="240"/>
   <object type="c01" gid="25" x="592" y="240"/>
+  <object type="c03" gid="27" x="704" y="240"/>
+  <object type="c02" gid="26" x="848" y="240"/>
  </objectgroup>
 </map>

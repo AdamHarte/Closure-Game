@@ -35,7 +35,7 @@
    <property name="tileset" value="level_tiles"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztmdkSwiAMRVGrrdv//67lgSmDCQQCXeg9M/fFESuHkG6jMWZEECSZYc6Hyb1wvGTcnuPmlJqH/d7X8DwSv8uNf1f2GFtjzdpzmYJ5cIm5o/xNwecTM84RehwK5pVa49Sxc/2WHo+C8neZ8zIyfw43ly/xm9JaqA3nt5Y7/xhurZ5mcVe6TnvxtybWo1/vmhrP7Y09+LP4dVNjTuGatO5FW+P3i1b9tdfaawX86YA/HakeCH9pYg7hTwa3j+FPBleD8CeHqkH4kwN/OuBPB9UD7fOK25Z/6mCgBnXAnw7KH/awHFxHy7DvAK5E3LNt+PvHd8Z5wnMEntz3HvC34L+zg798NLXnzsFUv7Tp/dysrT2J2x4duvNFS3dUffbiUrtnz7jXNdcoa2Sv56E192qN2ty6DsP7h717k+5xjVfunirnPuvoifXOszpBEGTd/AA1GSK/
+   eJztmNGygyAMRGmr1db2/3+3MpWRYpAUEhDMzuzT7VzMcRONg1JqEIvFYrFYLCZ2N/vluD/AdVHXyFXTqLaaGuFosvFeaqKup1v+t0+GY23ZtLlB9VDVAGUvJI77yM0NqgHDsdv5XSh7mPNL5tGdaTH1hLLwmH2d/QT+FpM9SPed8zk9qt/7mDsLtfMz2bgR1fFPLSm966r0PKTKQagWe15QnqnFmcHQ+yl1LT6GOu9mDuY6kytfFHMvth7K3rXFkUGua8XIx5A6e6HzsJx6te3VUuyM3Exw308sQ4jTxHxtMbL55eoFTB9z9QC1uOcspBC/kjOtBvn4YXfTs8vHT78/Ue4KrWqvf2uZe7l0Ud8d1Db0rUL4rbKZ7bESfrBS9oyz89PZ+zdzwm9V6o5rvtlBbv3ZnJo9DNsWGZrnBSc7KJ+tsCz9fb7GXk95R8nhoz6HcvYqRTZL59DdH47ODdvjKVyhncrn2nilcj0zE7FYnNcfUmkz2Q==
   </data>
  </layer>
  <objectgroup name="objects" width="80" height="40">
