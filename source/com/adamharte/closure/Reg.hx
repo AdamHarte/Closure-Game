@@ -65,7 +65,7 @@ class Reg
 	
 	static public function addLevel(levelName:String, fileName:String):Void 
 	{
-		var level:LevelData = new LevelData(levelName, fileName);
+		var level:LevelData = new LevelData(levelName, fileName, Reg.levels.length);
 		Reg.levels.push(level);
 	}
 	

@@ -10,6 +10,7 @@ import flixel.util.FlxPoint;
 class LevelData
 {
 	public var levelName:String;
+	public var levelIndex:Int;
 	public var enemyCount:Int;
 	public var fileName:String;
 	public var filePath(get, never):String;
@@ -22,10 +23,11 @@ class LevelData
 	}
 	
 	
-	public function new(levelName:String, fileName:String) 
+	public function new(levelName:String, fileName:String, levelIndex:Int) 
 	{
 		this.levelName = levelName;
 		this.fileName = fileName;
+		this.levelIndex = levelIndex;
 		completed = false;
 	}
 	
