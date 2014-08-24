@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="80" height="40" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="level_tiles" tilewidth="16" tileheight="16">
+  <image source="../images/level_tiles.png" width="80" height="48"/>
+  <terraintypes>
+   <terrain name="Test Terrain" tile="-1"/>
+  </terraintypes>
+  <tile id="0" terrain=",,,0"/>
+  <tile id="1" terrain=",,0,0"/>
+  <tile id="2" terrain=",,0,"/>
+  <tile id="3" terrain="0,0,0,"/>
+  <tile id="4" terrain="0,0,,0"/>
+  <tile id="5" terrain=",0,,0"/>
+  <tile id="6" terrain="0,0,0,0"/>
+  <tile id="7" terrain="0,,0,"/>
+  <tile id="8" terrain="0,,0,0"/>
+  <tile id="9" terrain=",0,0,0"/>
+  <tile id="10" terrain=",0,,"/>
+  <tile id="11" terrain="0,0,,"/>
+  <tile id="12" terrain="0,,,"/>
+ </tileset>
+ <tileset firstgid="16" name="objects" tilewidth="64" tileheight="64">
+  <image source="../images/objects.png" width="512" height="64"/>
+ </tileset>
+ <tileset firstgid="24" name="enemies" tilewidth="64" tileheight="64">
+  <image source="../images/enemies.png" width="512" height="64"/>
+  <tile id="1">
+   <properties>
+    <property name="type" value="c01"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Foreground" width="80" height="40">
+  <properties>
+   <property name="tileset" value="level_tiles"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztmdFuwyAMRdnWrdm6/v/vrjxYs64w2MEmEMWSH9o1Bk4utmH3lNL98ssvb/rt5b+Cf+58XvPczE5raq0j/+6ZZPtqxJWefyzOcYN1SF5jV+K3wfeb8BwZcrwlf6beMVuasliJ39vLf9hnjRHHZyGmh1a0etew1q7Jsm4a8zv9s9v7niL4aWLTfB+pztCTHxmO2aNx79y4KWNrOUfwwzE9xmjpYA8/nCvfrxp+nrkPjdeiqPza8lL+qvHjuZHmzPP3KO1FmYYfakjqCUpxc77+MIx5Rn6cmZYfzw34d/486nk1fpocyGs+8qvlK6lHxTzunddHm6WO4HpL+5OsxY/Ya+PNbNo6QvVAs+dq/LhucezM8D3QI95PS4N07i6tWdIM1l2y/Ky2F4zwEf0lsisx2DMn6l02+DyKXWR/KfGr9SfWOeGetmjP454isj7t5aeZU9ZZzj1472Hhx3vxvXcVkfykHGjt71qxuV41tR9zL49Z48h7BSmGt5X0YK0PJaudPZFt7x1pSa/R3DRz6bW8FmuvrY1b0uERvXgkv5p56ETKESPtKH5e1qNji1E9RF/9XimSH2dm7VlX4RdZL3rOSavwi7Lec1KNH+aCFe9PWtZ7Rq/dieB74b89A8vRZ3TLvufanY01njmP8NZdHp/bbDl29L2aB+ujNdjTo8zgR2lwhr26Ej/sGVbn5sFPOlNZzlmre8//js7K5PLLLx/rfzoWMf0=
+  </data>
+ </layer>
+ <objectgroup name="objects" width="80" height="40">
+  <object type="portal" gid="17" x="80" y="464"/>
+  <object type="c01" gid="25" x="592" y="576"/>
+  <object type="c01" gid="25" x="752" y="560"/>
+  <object type="c01" gid="25" x="976" y="512"/>
+  <object type="c01" gid="25" x="1168" y="384"/>
+  <object type="c01" gid="25" x="896" y="544"/>
+  <object type="c01" gid="25" x="784" y="240"/>
+  <object type="c01" gid="25" x="592" y="240"/>
+ </objectgroup>
+</map>

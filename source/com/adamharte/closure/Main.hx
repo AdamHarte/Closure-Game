@@ -53,7 +53,36 @@ class Main extends Sprite
 	
 	function loadLevels():Void 
 	{
-		Reg.addLevel('Test Level', 'test_level');
+		// Name source: http://pagannames.witchipedia.com/masculine
+		//Reg.addLevel('Test Level', 'test_level');
+		Reg.addLevel('01', 'aapep');
+		Reg.addLevel('02', 'abasi');
+		//Reg.addLevel('03', 'abejide');
+		//Reg.addLevel('04', 'adlar');
+		//Reg.addLevel('05', 'aldo');
+		//Reg.addLevel('06', 'argos');
+		//Reg.addLevel('07', 'bertram');
+		//Reg.addLevel('08', 'bjarki');
+		//Reg.addLevel('09', 'carrick');
+		//Reg.addLevel('10', 'casta');
+		//Reg.addLevel('11', 'cien');
+		//Reg.addLevel('12', 'corvus');
+		//Reg.addLevel('13', 'enfys');
+		//Reg.addLevel('14', 'fenrir');
+		//Reg.addLevel('15', 'gawain');
+		//Reg.addLevel('16', 'gogol');
+		//Reg.addLevel('17', 'greer');
+		//Reg.addLevel('18', 'hakon');
+		//Reg.addLevel('19', 'inali');
+		//Reg.addLevel('20', 'isfet');
+		//Reg.addLevel('21', 'ivo');
+		//Reg.addLevel('22', 'kiran');
+		//Reg.addLevel('23', 'leander');
+		//Reg.addLevel('24', 'lorcan');
+		//Reg.addLevel('25', 'lyall');
+		//Reg.addLevel('26', 'madura');
+		//Reg.addLevel('27', 'marc');
+		//Reg.addLevel('28', 'marc');
 		
 	}
 	
