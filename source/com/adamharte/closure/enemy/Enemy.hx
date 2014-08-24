@@ -58,6 +58,18 @@ class Enemy extends FlxSprite
 	
 	override public function update():Void 
 	{
+		if (!alive) 
+		{
+			if (isTouching(FlxObject.FLOOR)) 
+			{
+				acceleration.set();
+				solid = false;
+			}
+			
+			super.update();
+			return;
+		}
+		
 		acceleration.x = 0;
 		
 		// Set direction of the target to work out which way enemy should walk.
@@ -92,7 +104,7 @@ class Enemy extends FlxSprite
 				var ty:Int = Math.round(y / Reg.tileHeight);
 				var dir:Int = (_targetDirection == FlxObject.RIGHT) ? 1 : -1;
 				var tile:Int = Reg.level.foregroundTilemap.getTile(tx + dir, ty + 1);
-				var chance:Int = 5;
+				var chance:Float = 0.2;
 				if (tile == 0 && FlxRandom.chanceRoll(chance)) 
 				{
 					velocity.y = -_jumpPower;
@@ -146,13 +158,19 @@ class Enemy extends FlxSprite
 		
 		super.kill();
 		
-		//FlxG.sound.play('Explosion', 0.5);
-		
 		FlxSpriteUtil.stopFlickering(this);
 		//_gibs.at(this);
 		//_gibs.start(true, 3, 0, _gibQuantity);
 		Reg.score += 100;
 		Reg.enemiesKilled++;
+		
+		//solid = false;
+		exists = true;
+		velocity.set();
+		acceleration.x = 0;
+		//acceleration.set();
+		animation.play('death');
+		//FlxG.sound.play('Explosion', 0.5);
 	}
 	
 	
