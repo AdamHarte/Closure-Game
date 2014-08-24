@@ -22,7 +22,7 @@ class PlayerWeapon extends FlxSprite
 	private var _shotReady:Bool;
 	private var _manualReloadOverride:Bool;
 	private var _shootSound:String;
-	private var _shootSoundSlow:String;
+	//private var _shootSoundSlow:String;
 	
 	
 	
@@ -48,7 +48,7 @@ class PlayerWeapon extends FlxSprite
 				_barrelOffset = 6.0;
 				_bulletSpeed = 800;
 				_shootSound = 'Shoot';
-				_shootSoundSlow = 'ShootSlow';
+				//_shootSoundSlow = 'ShootSlow';
 			case WeaponType.BowWeapon:
 				loadGraphic('assets/images/weapons.png', false, 32, 32);
 				setFacingFlip(FlxObject.LEFT, true, false);
@@ -62,7 +62,7 @@ class PlayerWeapon extends FlxSprite
 				_barrelOffset = 6.0;
 				_bulletSpeed = 350;
 				_shootSound = 'Shoot';
-				_shootSoundSlow = 'ShootSlow';
+				//_shootSoundSlow = 'ShootSlow';
 			case WeaponType.FlameWeapon:
 				//
 		}
@@ -132,8 +132,8 @@ class PlayerWeapon extends FlxSprite
 		_reloadTimer = 0;
 		
 		// Make the shoot sound.
-		var soundId:String = (FlxG.timeScale < 0.7) ? _shootSoundSlow : _shootSound;
-		//FlxG.sound.play(soundId, 0.5);
+		//var soundId:String = (FlxG.timeScale < 0.7) ? _shootSoundSlow : _shootSound;
+		FlxG.sound.play(_shootSound, 0.5);
 		
 		// Find the bullet start position based on player and gun.
 		var op:Float = Math.sin(angle) * barrelOffset;

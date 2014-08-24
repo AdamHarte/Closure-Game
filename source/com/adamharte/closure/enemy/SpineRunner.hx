@@ -1,5 +1,6 @@
 package com.adamharte.closure.enemy;
 import com.adamharte.closure.weapons.FlameBullet;
+import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.group.FlxGroup;
 import flixel.util.FlxAngle;
@@ -58,7 +59,8 @@ class SpineRunner extends Enemy
 		_shootTimer = _reloadTime;
 		
 		// Make the shoot sound.
-		//FlxG.sound.play('EnemyShoot', 0.3);
+		var soundId:String = (FlxRandom.chanceRoll(50)) ? 'ShootFire1' : 'ShootFire2';
+		FlxG.sound.play(soundId, 0.3);
 		
 		// Fire the bullet.
 		var bullet:FlameBullet = cast(_bullets.recycle(FlameBullet), FlameBullet);

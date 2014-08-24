@@ -108,7 +108,7 @@ class Player extends FlxSprite
 		if (velocity.y == 0 && (FlxG.keys.justPressed.W || FlxG.keys.justPressed.SPACE)) 
 		{
 			velocity.y = -_jumpPower;
-			//FlxG.sound.play('Jump', 0.5);
+			FlxG.sound.play('Jump', 0.5);
 			animation.play('jump');
 		}
 		
