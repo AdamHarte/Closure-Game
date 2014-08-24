@@ -8,6 +8,7 @@ import flixel.FlxSubState;
 import flixel.group.FlxSpriteGroup;
 import flixel.tweens.FlxTween;
 import flixel.ui.FlxButton;
+import flixel.util.FlxMath;
 import flixel.util.FlxPoint;
 import flixel.util.FlxRandom;
 
@@ -19,7 +20,7 @@ class MissionMap extends FlxState
 {
 	var _bgBlocker:FlxSprite;
 	var _container:FlxSpriteGroup;
-	var step:Int = 0;
+	var _step:Int;
 	
 	
 	override public function create():Void 
@@ -31,7 +32,15 @@ class MissionMap extends FlxState
 		map.setGraphicSize(852, 2556);
 		map.origin.set();
 		
-		
+		var pageHeight:Float = (2556 - FlxG.height) / 5;
+		for (level in Reg.levels) 
+		{
+			if (!level.completed) 
+			{
+				_step = Std.int(level.levelIndex / 2);
+				break;
+			}
+		}
 		
 		_container = new FlxSpriteGroup();
 		_container.setPosition(0, FlxG.height - 2556);
@@ -53,6 +62,7 @@ class MissionMap extends FlxState
 		super.create();
 		
 		FlxG.camera.fade(0xff000000, 1, true);
+		refreshMap();
 	}
 	
 	
@@ -81,24 +91,25 @@ class MissionMap extends FlxState
 		}
 	}
 	
+	function refreshMap() 
+	{
+		_step = Std.int(FlxMath.bound(_step, 0, 4));
+		var targetY = (FlxG.height - 2556) / 5 * (5-_step);
+		FlxTween.cubicMotion(_container, 0, _container.y, 0, _container.y, 0, targetY, 0, targetY, 0.8);
+	}
+	
 	
 	
 	function upBtnClick() 
 	{
-		step++;
-		if (step > 4) step = 4;
-		
-		var targetY = (FlxG.height - 2556) / 5 * (5-step);
-		FlxTween.cubicMotion(_container, 0, _container.y, 0, _container.y, 0, targetY, 0, targetY, 0.8);
+		_step++;
+		refreshMap();
 	}
 	
 	function downBtnClick() 
 	{
-		step--;
-		if (step < 0) step = 0;
-		
-		var targetY = (FlxG.height - 2556) / 5 * (5-step);
-		FlxTween.cubicMotion(_container, 0, _container.y, 0, _container.y, 0, targetY, 0, targetY, 0.8);
+		_step--;
+		refreshMap();
 	}
 	
 	function missionClick(levelIndex:Int) 
