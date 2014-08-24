@@ -2,6 +2,7 @@ package com.adamharte.closure;
 
 import com.adamharte.closure.enemy.Enemy;
 import com.adamharte.closure.enemy.SpineRunner;
+import com.adamharte.closure.gui.MissionMap;
 import com.adamharte.closure.sprites.Portal;
 import com.adamharte.closure.weapons.Bullet;
 import com.adamharte.closure.weapons.PlayerWeapon;
@@ -16,6 +17,7 @@ import flixel.ui.FlxButton;
 import flixel.util.FlxDestroyUtil;
 import flixel.util.FlxMath;
 import flixel.util.FlxPoint;
+import flixel.util.FlxTimer;
 
 using flixel.util.FlxSpriteUtil;
 
@@ -38,11 +40,15 @@ class PlayState extends FlxState
 	var _hazards:FlxGroup;
 	var _objects:FlxGroup;
 	
+	var _levelComplete:Bool;
+	
 	
 	override public function create():Void
 	{
 		levelTilesPath = 'assets/level_tiles.png';
 		levelObjectsPath = 'assets/level_objects.png';
+		
+		_levelComplete = false;
 		
 		Reg.score = 0;
 		Reg.enemiesKilled = 0;
@@ -120,6 +126,12 @@ class PlayState extends FlxState
 
 	override public function update():Void
 	{
+		// Check win.
+		if (Reg.enemiesKilled == Reg.currentLevel.enemyCount && Reg.enemyBullets.countLiving() == 0) 
+		{
+			finishedLevel();
+		}
+		
 		// Set the camera to a point halfway between the mouse and the player.
 		var mouseOffsetX:Float = (FlxG.mouse.screenX - (FlxG.width / 2)) * 0.5;
 		var mouseOffsetY:Float = (FlxG.mouse.screenY - (FlxG.height / 2)) * 0.5;
@@ -131,6 +143,10 @@ class PlayState extends FlxState
 		FlxG.overlap(_hazards, _player, overlapHandler);
 		FlxG.overlap(Reg.bullets, _hazards, shootHazardsOverlapHandler);
 		
+		if(FlxG.keys.justPressed.E)
+		{
+			openSubState(new MissionMap());
+		}
 		
 		super.update();
 	}
@@ -152,6 +168,35 @@ class PlayState extends FlxState
 			var creature:SpineRunner = cast(Reg.enemies.recycle(SpineRunner), SpineRunner);
 			creature.init(creaturePoint.x, creaturePoint.y, _player);
 		}
+	}
+	
+	function finishedLevel():Void 
+	{
+		if (_levelComplete) 
+		{
+			return;
+		}
+		_levelComplete = true;
+		Reg.currentLevel.completed = true;
+		
+		Reg.scores[Reg.levelNumber] = Reg.score;
+		//Reg.score = 0;
+		
+		//_statusOverlay.show('SUCCESS');
+		
+		new FlxTimer().start(1, finishedLevelFade);
+	}
+	
+	function finishedLevelFade(timer:FlxTimer):Void 
+	{
+		//FlxG.cameras.fade(0xff000000, 1, false, winLevelFadeHandler);
+		winLevelFadeHandler();
+	}
+	
+	function winLevelFadeHandler():Void 
+	{
+		//TODO: Go to town level.
+		openSubState(new MissionMap());
 	}
 	
 	

@@ -130,6 +130,7 @@ class TiledLevel extends TiledMap
 				playerSpawn.set(x + 64, y);
 				
 			case 'c01':
+				Reg.currentLevel.enemyCount++;
 				creatures.push(new FlxPoint(x, y));
 				
 			default:
