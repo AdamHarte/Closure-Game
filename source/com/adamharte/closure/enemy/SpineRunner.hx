@@ -32,7 +32,7 @@ class SpineRunner extends Enemy
 		drag.x = _walkSpeed * 8;
 		acceleration.y = Reg.gravity;
 		maxVelocity.x = _walkSpeed;
-		maxVelocity.y = _jumpPower;
+		maxVelocity.y = 1000; // _jumpPower;
 		
 		// Setup animations.
 		animation.add('idle', [1], 6);
