@@ -23,13 +23,43 @@ class MenuState extends FlxState
 	 */
 	override public function create():Void
 	{
+		FlxG.cameras.bgColor = 0xff1e2936;
+		
+		// Show the mouse (in case it hasn't been disabled)
+		#if !FLX_NO_MOUSE
+		FlxG.mouse.visible = true;
+		#end
+		
+		Reg.levelNumber = 0;
+		Reg.score = 0;
+		
+		
+		var title:FlxText = new FlxText(0, 0, 0, 'Closure', 32);
+		title.screenCenter(true, true);
+		title.y -= 20;
+		add(title);
+		
+		var credits:FlxText = new FlxText(0, 0, 256, 'by Adam Harte');
+		credits.screenCenter();
+		credits.x += 120;
+		//credits.y += 10;
+		add(credits);
+		
 		_playBtn = new FlxButton(0, 0, "Play", playBtnClick);
 		_playBtn.screenCenter();
+		_playBtn.y += 30;
 		add(_playBtn);
+		
+		var helpText:FlxText = new FlxText(0, 0, 0, '[A]/[D] to Move\n[W] to Jump\n[Mouse] to Shoot', 10);
+		helpText.setFormat(null, 12, 0xffffff, 'center');
+		helpText.antialiasing = true;
+		helpText.screenCenter(true);
+		helpText.y = FlxG.height - 70;
+		add(helpText);
 		
 		super.create();
 		
-		playBtnClick(); // Skip menu for faster development.
+		//playBtnClick(); // Skip menu for faster development.
 	}
 	
 	/**
