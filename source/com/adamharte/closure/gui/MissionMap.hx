@@ -21,6 +21,8 @@ class MissionMap extends FlxState
 	var _bgBlocker:FlxSprite;
 	var _container:FlxSpriteGroup;
 	var _step:Int;
+	var upBtn:FlxButton;
+	var downBtn:FlxButton;
 	
 	
 	override public function create():Void 
@@ -50,8 +52,8 @@ class MissionMap extends FlxState
 		
 		addMissionButtons();
 		
-		var upBtn:FlxButton = new FlxButton(FlxG.width / 2 - 50, 10, '^', upBtnClick);
-		var downBtn:FlxButton = new FlxButton(FlxG.width / 2 - 50, FlxG.height - 30, 'v', downBtnClick);
+		upBtn = new FlxButton(FlxG.width / 2 - 50, 10, '^', upBtnClick);
+		downBtn = new FlxButton(FlxG.width / 2 - 50, FlxG.height - 30, 'v', downBtnClick);
 		
 		add(upBtn);
 		add(downBtn);
@@ -96,6 +98,9 @@ class MissionMap extends FlxState
 		_step = Std.int(FlxMath.bound(_step, 0, 4));
 		var targetY = (FlxG.height - 2556) / 5 * (5-_step);
 		FlxTween.cubicMotion(_container, 0, _container.y, 0, _container.y, 0, targetY, 0, targetY, 0.8);
+		
+		upBtn.visible = _step != 4;
+		downBtn.visible = _step != 0;
 	}
 	
 	
