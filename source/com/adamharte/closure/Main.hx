@@ -63,7 +63,7 @@ class Main extends Sprite
 		Reg.addLevel('06', 'argos');
 		Reg.addLevel('07', 'bertram');
 		Reg.addLevel('08', 'bjarki');
-		//Reg.addLevel('09', 'carrick');
+		Reg.addLevel('09', 'carrick');
 		//Reg.addLevel('10', 'casta');
 		//Reg.addLevel('11', 'cien');
 		//Reg.addLevel('12', 'corvus');

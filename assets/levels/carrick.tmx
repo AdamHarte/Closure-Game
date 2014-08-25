@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="160" height="40" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="level_tiles" tilewidth="16" tileheight="16">
+  <image source="../images/level_tiles.png" width="80" height="48"/>
+  <terraintypes>
+   <terrain name="Test Terrain" tile="-1"/>
+  </terraintypes>
+  <tile id="0" terrain=",,,0"/>
+  <tile id="1" terrain=",,0,0"/>
+  <tile id="2" terrain=",,0,"/>
+  <tile id="3" terrain="0,0,0,"/>
+  <tile id="4" terrain="0,0,,0"/>
+  <tile id="5" terrain=",0,,0"/>
+  <tile id="6" terrain="0,0,0,0"/>
+  <tile id="7" terrain="0,,0,"/>
+  <tile id="8" terrain="0,,0,0"/>
+  <tile id="9" terrain=",0,0,0"/>
+  <tile id="10" terrain=",0,,"/>
+  <tile id="11" terrain="0,0,,"/>
+  <tile id="12" terrain="0,,,"/>
+ </tileset>
+ <tileset firstgid="16" name="objects" tilewidth="64" tileheight="64">
+  <image source="../images/objects.png" width="512" height="64"/>
+ </tileset>
+ <tileset firstgid="24" name="enemies" tilewidth="64" tileheight="64">
+  <image source="../images/enemies.png" width="512" height="64"/>
+  <tile id="1">
+   <properties>
+    <property name="type" value="c01"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Foreground" width="160" height="40">
+  <properties>
+   <property name="tileset" value="level_tiles"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztXNuO3DAIzXams7fO//9u19IgIWTwwYbEyRqJl24SYzhgMEzft217X7x4cSjff/jfi/9OIM/i38WfP/znxV+B3+W45hyB8Tv4HfS5xdfjj61OD/ZMLz6KzyC+UmT47lzjTKz5+mznmiVnlIyEKQ1/HA8ojpD1an8r37+91jzCJtm5DX3/qeia67xXhrt4d2RP/KzlzG00qieKOZZOImMSrafpRO75JmySicWs3Ibv3UM1P2zxU7zL7Upn2WieE6En1Be5LrjMI2cxx1dL/hoeHx3renUTjfG7Q9dZxDGZ6c+t/MKDO07c7h9bHA6kvJY+ZI6YgZWIPKMm96wk46zUJ4In/i7lURlyWrmgzD089kbj26d4JgMrck8R+M6ySQZJPHpiVe3cjyQr77TqBzS+IXjSYq8VR6083PJveVaN1IIzx8CzkRaztZrJk/O14qnEn5bLchmfyr9H+Cpany385RFSq3nOMZ6vS/vKGvrovL4Qkgsv/B1LnvsENJbNQrPi723T7/AWXYdmxZ+Wr1OetAcONR/4TX5QdHDbfPuVerPenRV/RFq+vodMlm609Un3V8En9Xg8+5J6s2LGUfjjPuKxFb+/yrRxka/Um7Va0rqTR+9xzoZTrveW3Fq+WtMJgr8MW8uegPe97L4MrVNkIyyisQ85e6Q9j8Qicl7KfCgiD5J63TMGjuKPcJFhN64Xea/bin1ovlrLb1t3gPIbNdx4dELP8jjfit1S7hFcePqQ1kwJ3wuKhV78kY05LiJ9w/JJJOZqOkXmtLw2kHIiOnkT73vnKbjc9B7VKB7yxD7kbK6dJ5b/PjZdr629yHmY0fxA2qQXe4U0PFkyZsyOauvJ/kdED6N80xsD0NiH9MY9c7rI+hYeud/wfpI3H0Ewx/ff00uu9b9a78g6X+vN9s7qZNxHFxt4YgCv7Vp+RzrTahrtfflt6WueWV0Nt7yf5Omjapir2XTERiO5klZHZ89JEHnuJyh+o/vjOXwrDra+adXaXl9D6nbtm70zdWjePUJ7YSaKZG6G1OhoDOSx77mN428W6pm5PhMm9iBeD3vxgN7LWvdaZ8bfIpy0viJhoTXXV6PWWSexjZy9M8zeL4onze69dzGeNfmdxYp989EefTlPf2yU6G6wZ+5/4W+ceu/lr6J7qkt67pqvooMjCcUTxQne3znLbEKN+H5q92vI3d+es3ZXJNlHbtWFspd0Zv+n/Wh3rp7foZ5ZD0eS1K/Vk63NO8ysd2s2F/19/MoD44nne9YcJtL/m/n8yf6/FKQeZtRBD2XUlzUsWf7tzccj/J/vu3f2l38n87frZ46B6LkQOfcZGQtqebl3PsiSUWIf7Zej5+rsMbCFj1Hu0Y/XBpk2QWJjj7xH4SYag0fgY/HixYsXL168eHEe/wc6sV4W
+  </data>
+ </layer>
+ <objectgroup name="objects" width="160" height="40">
+  <object type="portal" gid="17" x="128" y="576"/>
+  <object type="c01" gid="25" x="128" y="304"/>
+  <object type="c01" gid="25" x="768" y="544"/>
+  <object type="c01" gid="25" x="1152" y="560"/>
+  <object type="c01" gid="25" x="1424" y="512"/>
+  <object type="c01" gid="25" x="896" y="528"/>
+  <object type="c01" gid="25" x="1744" y="560"/>
+  <object type="c01" gid="25" x="1056" y="560"/>
+  <object type="c02" gid="26" x="1312" y="272"/>
+  <object type="c02" gid="26" x="2336" y="224"/>
+  <object type="c03" gid="27" x="480" y="320"/>
+  <object type="c03" gid="27" x="800" y="352"/>
+  <object type="c03" gid="27" x="496" y="320"/>
+  <object type="c03" gid="27" x="736" y="336"/>
+  <object type="c01" gid="25" x="1568" y="288"/>
+  <object type="c03" gid="27" x="864" y="352"/>
+  <object type="c03" gid="27" x="992" y="560"/>
+  <object type="c02" gid="26" x="1264" y="240"/>
+  <object type="c02" gid="26" x="320" y="320"/>
+  <object type="c02" gid="26" x="496" y="320"/>
+  <object type="c02" gid="26" x="1776" y="288"/>
+  <object type="c02" gid="26" x="1984" y="272"/>
+  <object type="c02" gid="26" x="2096" y="352"/>
+  <object type="c01" gid="25" x="2240" y="496"/>
+  <object type="c03" gid="27" x="496" y="320"/>
+ </objectgroup>
+</map>
