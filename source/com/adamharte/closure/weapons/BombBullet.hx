@@ -10,7 +10,7 @@ import flixel.util.FlxRandom;
  */
 class BombBullet extends Bullet
 {
-	static private var liveTimerMax:Float = 2;
+	static private var liveTimerMax:Float = 2.5;
 	
 	var _liveTimer:Float;
 	
