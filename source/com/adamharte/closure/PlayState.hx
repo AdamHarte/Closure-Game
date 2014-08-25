@@ -266,8 +266,24 @@ class PlayState extends FlxState
 	
 	function winLevelFadeHandler():Void 
 	{
-		//TODO: Go to town level.
-		FlxG.switchState(new MissionMap());
+		var allComplete:Bool = true;
+		for (level in Reg.levels) 
+		{
+			if (!level.completed) 
+			{
+				allComplete = false;
+				break;
+			}
+		}
+		
+		if (allComplete) 
+		{
+			FlxG.switchState(new GameOverState());
+		}
+		else 
+		{
+			FlxG.switchState(new MissionMap());
+		}
 	}
 	
 	
