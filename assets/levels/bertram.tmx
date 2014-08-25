@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="120" height="100" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="level_tiles" tilewidth="16" tileheight="16">
+  <image source="../images/level_tiles.png" width="80" height="48"/>
+  <terraintypes>
+   <terrain name="Test Terrain" tile="-1"/>
+  </terraintypes>
+  <tile id="0" terrain=",,,0"/>
+  <tile id="1" terrain=",,0,0"/>
+  <tile id="2" terrain=",,0,"/>
+  <tile id="3" terrain="0,0,0,"/>
+  <tile id="4" terrain="0,0,,0"/>
+  <tile id="5" terrain=",0,,0"/>
+  <tile id="6" terrain="0,0,0,0"/>
+  <tile id="7" terrain="0,,0,"/>
+  <tile id="8" terrain="0,,0,0"/>
+  <tile id="9" terrain=",0,0,0"/>
+  <tile id="10" terrain=",0,,"/>
+  <tile id="11" terrain="0,0,,"/>
+  <tile id="12" terrain="0,,,"/>
+ </tileset>
+ <tileset firstgid="16" name="objects" tilewidth="64" tileheight="64">
+  <image source="../images/objects.png" width="512" height="64"/>
+ </tileset>
+ <tileset firstgid="24" name="enemies" tilewidth="64" tileheight="64">
+  <image source="../images/enemies.png" width="512" height="64"/>
+  <tile id="1">
+   <properties>
+    <property name="type" value="c01"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Foreground" width="120" height="100">
+  <properties>
+   <property name="tileset" value="level_tiles"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   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
+  </data>
+ </layer>
+ <objectgroup name="objects" width="120" height="100">
+  <object type="portal" gid="17" x="784" y="224"/>
+  <object type="c01" gid="25" x="1360" y="1136"/>
+  <object type="c01" gid="25" x="1248" y="1152"/>
+  <object type="c01" gid="25" x="976" y="528"/>
+  <object type="c01" gid="25" x="1200" y="1152"/>
+  <object type="c03" gid="27" x="1312" y="368"/>
+  <object type="c03" gid="27" x="1312" y="368"/>
+  <object type="c03" gid="27" x="1408" y="512"/>
+  <object type="c03" gid="27" x="1360" y="528"/>
+  <object type="c03" gid="27" x="1424" y="512"/>
+  <object type="c03" gid="27" x="1472" y="304"/>
+  <object type="c03" gid="27" x="1424" y="512"/>
+  <object type="c03" gid="27" x="1376" y="512"/>
+  <object type="c03" gid="27" x="240" y="704"/>
+  <object type="c03" gid="27" x="208" y="688"/>
+  <object type="c03" gid="27" x="272" y="704"/>
+  <object type="c03" gid="27" x="304" y="704"/>
+  <object type="c03" gid="27" x="192" y="688"/>
+  <object type="c03" gid="27" x="1120" y="400"/>
+  <object type="c03" gid="27" x="1408" y="512"/>
+  <object type="c03" gid="27" x="1488" y="272"/>
+  <object type="c03" gid="27" x="304" y="1280"/>
+  <object type="c03" gid="27" x="352" y="1296"/>
+  <object type="c03" gid="27" x="400" y="1296"/>
+  <object type="c03" gid="27" x="464" y="1296"/>
+  <object type="c03" gid="27" x="528" y="1296"/>
+  <object type="c03" gid="27" x="576" y="1296"/>
+  <object type="c03" gid="27" x="1408" y="1136"/>
+  <object type="c03" gid="27" x="208" y="1248"/>
+  <object type="c03" gid="27" x="128" y="1248"/>
+  <object type="c03" gid="27" x="112" y="1232"/>
+  <object type="c03" gid="27" x="160" y="1248"/>
+  <object type="c03" gid="27" x="1568" y="1104"/>
+  <object type="c03" gid="27" x="1664" y="1088"/>
+ </objectgroup>
+</map>

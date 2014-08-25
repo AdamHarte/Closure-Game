@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="120" height="100" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="level_tiles" tilewidth="16" tileheight="16">
+  <image source="../images/level_tiles.png" width="80" height="48"/>
+  <terraintypes>
+   <terrain name="Test Terrain" tile="-1"/>
+  </terraintypes>
+  <tile id="0" terrain=",,,0"/>
+  <tile id="1" terrain=",,0,0"/>
+  <tile id="2" terrain=",,0,"/>
+  <tile id="3" terrain="0,0,0,"/>
+  <tile id="4" terrain="0,0,,0"/>
+  <tile id="5" terrain=",0,,0"/>
+  <tile id="6" terrain="0,0,0,0"/>
+  <tile id="7" terrain="0,,0,"/>
+  <tile id="8" terrain="0,,0,0"/>
+  <tile id="9" terrain=",0,0,0"/>
+  <tile id="10" terrain=",0,,"/>
+  <tile id="11" terrain="0,0,,"/>
+  <tile id="12" terrain="0,,,"/>
+ </tileset>
+ <tileset firstgid="16" name="objects" tilewidth="64" tileheight="64">
+  <image source="../images/objects.png" width="512" height="64"/>
+ </tileset>
+ <tileset firstgid="24" name="enemies" tilewidth="64" tileheight="64">
+  <image source="../images/enemies.png" width="512" height="64"/>
+  <tile id="1">
+   <properties>
+    <property name="type" value="c01"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Foreground" width="120" height="100">
+  <properties>
+   <property name="tileset" value="level_tiles"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   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
+  </data>
+ </layer>
+ <objectgroup name="objects" width="120" height="100">
+  <object type="portal" gid="17" x="96" y="352"/>
+  <object type="c01" gid="25" x="112" y="1056"/>
+  <object type="c01" gid="25" x="96" y="1056"/>
+  <object type="c01" gid="25" x="816" y="512"/>
+  <object type="c01" gid="25" x="160" y="1024"/>
+  <object type="c01" gid="25" x="1424" y="656"/>
+  <object type="c01" gid="25" x="880" y="512"/>
+  <object type="c01" gid="25" x="1728" y="1408"/>
+  <object type="c01" gid="25" x="64" y="1488"/>
+  <object type="c01" gid="25" x="592" y="560"/>
+  <object type="c03" gid="27" x="560" y="416"/>
+  <object type="c03" gid="27" x="896" y="528"/>
+  <object type="c03" gid="27" x="928" y="528"/>
+  <object type="c03" gid="27" x="144" y="1056"/>
+  <object type="c03" gid="27" x="96" y="1056"/>
+  <object type="c03" gid="27" x="112" y="1056"/>
+  <object type="c03" gid="27" x="112" y="1488"/>
+  <object type="c03" gid="27" x="96" y="1488"/>
+  <object type="c03" gid="27" x="96" y="1488"/>
+  <object type="c03" gid="27" x="128" y="1488"/>
+  <object type="c03" gid="27" x="1008" y="1488"/>
+  <object type="c03" gid="27" x="1696" y="1408"/>
+  <object type="c03" gid="27" x="1392" y="656"/>
+  <object type="c03" gid="27" x="1504" y="1184"/>
+  <object type="c03" gid="27" x="1456" y="1104"/>
+  <object type="c03" gid="27" x="1552" y="784"/>
+  <object type="c03" gid="27" x="1568" y="816"/>
+  <object type="c03" gid="27" x="1600" y="848"/>
+  <object type="c02" gid="26" x="1552" y="1200"/>
+  <object type="c01" gid="25" x="1504" y="624"/>
+  <object type="c03" gid="27" x="32" y="1072"/>
+  <object type="c03" gid="27" x="640" y="368"/>
+  <object type="c03" gid="27" x="704" y="352"/>
+  <object type="c03" gid="27" x="784" y="336"/>
+  <object type="c03" gid="27" x="832" y="320"/>
+  <object type="c01" gid="25" x="48" y="1488"/>
+  <object type="c01" gid="25" x="64" y="1488"/>
+ </objectgroup>
+</map>
